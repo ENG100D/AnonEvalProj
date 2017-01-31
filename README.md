@@ -1,1 +1,1 @@
-# AnonEvalProj
+React Webpack Express Boilerplate Project
