@@ -12,9 +12,6 @@ class Main extends Component {
   render () {
     return (
       <div>
-        <div>
-          <Home />
-        </div>
         {this.props.children}
       </div>
     );

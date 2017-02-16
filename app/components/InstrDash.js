@@ -4,7 +4,7 @@ class InstrDash extends Component {
   render() {
     return (
       <div>
-
+        <h1>Instructor Dash</h1>
       </div>
     );
   };
