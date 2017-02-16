@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Router, IndexRoute, browserHistory } from 'react-router';
+import { Route, Router, IndexRoute, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
+
+/* Routes */
 import routes from './routes';
+/* Store */
+import * as conf from 'configureStore';
+
+
+// Init custom store configuration
+var store = conf.configure();
 
 // Render provider and routes to DOM
 ReactDOM.render(
