@@ -1,4 +1,6 @@
 var express = require('express');
+var firebase = require("firebase");
+
 // Create express app
 var app = express();
 // Use the environment's port, 8080 ass the default port
@@ -11,6 +13,16 @@ app.use(function(req, res, next) {
     next();
   }
 });
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyAW9Wo8Ta_KkbOeWV6yOR6u6J6KSXY8eAE",
+  authDomain: "anonevalproj.firebaseapp.com",
+  databaseURL: "https://anonevalproj.firebaseio.com",
+  storageBucket: "anonevalproj.appspot.com",
+  messagingSenderId: "40786831761"
+};
+firebase.initializeApp(config);
 
 app.use(express.static('public'));
 
