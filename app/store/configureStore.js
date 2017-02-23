@@ -2,10 +2,12 @@
 import * as redux from 'redux';
 import reduxPromise from 'redux-promise';
 
+import { reducer as formReducer } from 'redux-form';
+
 export function configure() {
   // Combine all custom reducers
   var reducer = redux.combineReducers({
-    // dashboards: dashboardsReducer,
+    form: formReducer
   });
 
   // Create store with reducers, middleware and chrome dev tool extension
