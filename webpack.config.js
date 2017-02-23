@@ -8,7 +8,8 @@ module.exports = {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
-      './app/components'
+      './app/components',
+      './public/lib'
     ],
     alias: {
       actions: 'app/actions/actions.js',
@@ -22,7 +23,8 @@ module.exports = {
       {
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015', 'stage-0']
+          presets: ['react', 'es2015', 'stage-0'],
+          plugins: ["transform-decorators-legacy"]
         },
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/

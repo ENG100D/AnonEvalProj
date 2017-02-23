@@ -13,7 +13,6 @@ class StudLogin extends Component {
 		super(props);
 
 	};
-
   onSubmit(props) {
     // handle submittion code in here
     console.log(props);
@@ -27,12 +26,12 @@ class StudLogin extends Component {
       <div>
         <h1>Student Login</h1>
 
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="form-signin">
+        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="">
 
-          <input type="text" className="form-control" placeholder="email" required autoFocus {...email} />
-        	<input type="password" className="form-control" placeholder="password" required {...password} />
+          <input type="text" className="" placeholder="" autoFocus {...email} />
+        	<input type="password" className="" placeholder="" {...password} />
 
-        	<button className="btn btn-lg btn-color btn-block" type="submit">
+        	<button className="" type="submit">
           	Submit
           </button>
 
@@ -40,11 +39,10 @@ class StudLogin extends Component {
 
         <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
       </div>
-    );
+    )
   };
 };
 
 export default reduxForm({
-  form: 'StudentForm',
-  fields: ['email', 'password']
-})(StudLogin);
+  form: 'StudForm',
+  fields: ['email', 'password']})(StudLogin);

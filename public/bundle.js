@@ -27522,12 +27522,12 @@
 	        ),
 	        _react2.default.createElement(
 	          'form',
-	          { onSubmit: handleSubmit(this.onSubmit.bind(this)), className: 'form-signin' },
-	          _react2.default.createElement('input', _extends({ type: 'text', className: 'form-control', placeholder: 'email', required: true, autoFocus: true }, email)),
-	          _react2.default.createElement('input', _extends({ type: 'password', className: 'form-control', placeholder: 'password', required: true }, password)),
+	          { onSubmit: handleSubmit(this.onSubmit.bind(this)), className: '' },
+	          _react2.default.createElement('input', _extends({ type: 'text', className: '', placeholder: '', autoFocus: true }, email)),
+	          _react2.default.createElement('input', _extends({ type: 'password', className: '', placeholder: '' }, password)),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'btn btn-lg btn-color btn-block', type: 'submit' },
+	            { className: '', type: 'submit' },
 	            'Submit'
 	          )
 	        ),
@@ -27551,9 +27551,8 @@
 	;
 
 	exports.default = (0, _reduxForm.reduxForm)({
-	  form: 'StudentForm',
-	  fields: ['email', 'password']
-	})(StudLogin);
+	  form: 'StudForm',
+	  fields: ['email', 'password'] })(StudLogin);
 
 /***/ },
 /* 259 */
