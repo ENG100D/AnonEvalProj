@@ -13,10 +13,6 @@ class StudLogin extends Component {
 		super(props);
 
 	};
-  onSubmit(props) {
-    // handle submittion code in here
-    console.log(props);
-  };
 
   render() {
 
@@ -25,17 +21,6 @@ class StudLogin extends Component {
     return (
       <div>
         <h1>Student Login</h1>
-
-        <form onSubmit={handleSubmit(this.onSubmit.bind(this))} className="">
-
-          <input type="text" className="" placeholder="" autoFocus {...email} />
-        	<input type="password" className="" placeholder="" {...password} />
-
-        	<button className="" type="submit">
-          	Submit
-          </button>
-
-        </form>
 
         <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
       </div>

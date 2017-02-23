@@ -27041,9 +27041,9 @@
 
 	var _ClassSelect2 = _interopRequireDefault(_ClassSelect);
 
-	var _EvalForm = __webpack_require__(253);
+	var _EvalPage = __webpack_require__(466);
 
-	var _EvalForm2 = _interopRequireDefault(_EvalForm);
+	var _EvalPage2 = _interopRequireDefault(_EvalPage);
 
 	var _Home = __webpack_require__(254);
 
@@ -27078,7 +27078,7 @@
 	  { path: '/', component: _Main2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'classes', component: _ClassSelect2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _EvalForm2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _EvalPage2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instrucor/dashboard', component: _InstrDash2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instructor/login', component: _InstrLogin2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'student/login', component: _StudLogin2.default }),
@@ -27156,6 +27156,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reduxForm = __webpack_require__(259);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27176,13 +27178,45 @@
 	  _createClass(EvalForm, [{
 	    key: 'render',
 	    value: function render() {
+	      var handleSubmit = this.props.handleSubmit;
+
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        'form',
+	        { onSubmit: handleSubmit },
 	        _react2.default.createElement(
-	          'h1',
+	          'div',
 	          null,
-	          'Evaluation Form'
+	          _react2.default.createElement(
+	            'label',
+	            { htmlFor: 'firstName' },
+	            'First Name'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'firstName', component: 'input', type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            { htmlFor: 'lastName' },
+	            'Last Name'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'lastName', component: 'input', type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            { htmlFor: 'email' },
+	            'Email'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'email', component: 'input', type: 'email' })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'submit' },
+	          'Submit'
 	        )
 	      );
 	    }
@@ -27191,7 +27225,12 @@
 	  return EvalForm;
 	}(_react.Component);
 
-	;
+	// Decorate the form component
+
+
+	EvalForm = (0, _reduxForm.reduxForm)({
+	  form: 'eval' // a unique name for this form
+	})(EvalForm);
 
 	exports.default = EvalForm;
 
@@ -27463,8 +27502,6 @@
 	  value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -27495,12 +27532,6 @@
 
 
 	  _createClass(StudLogin, [{
-	    key: 'onSubmit',
-	    value: function onSubmit(props) {
-	      // handle submittion code in here
-	      console.log(props);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -27519,17 +27550,6 @@
 	          'h1',
 	          null,
 	          'Student Login'
-	        ),
-	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: handleSubmit(this.onSubmit.bind(this)), className: '' },
-	          _react2.default.createElement('input', _extends({ type: 'text', className: '', placeholder: '', autoFocus: true }, email)),
-	          _react2.default.createElement('input', _extends({ type: 'password', className: '', placeholder: '' }, password)),
-	          _react2.default.createElement(
-	            'button',
-	            { className: '', type: 'submit' },
-	            'Submit'
-	          )
 	        ),
 	        _react2.default.createElement(
 	          'button',
@@ -38348,6 +38368,68 @@
 
 	module.exports = isArray;
 
+
+/***/ },
+/* 466 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _EvalForm = __webpack_require__(253);
+
+	var _EvalForm2 = _interopRequireDefault(_EvalForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var EvalPage = function (_Component) {
+	  _inherits(EvalPage, _Component);
+
+	  function EvalPage() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, EvalPage);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = EvalPage.__proto__ || Object.getPrototypeOf(EvalPage)).call.apply(_ref, [this].concat(args))), _this), _this.handleSubmit = function (values) {
+	      // Do something with the form values
+	      console.log(values);
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(EvalPage, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_EvalForm2.default, { onSubmit: this.handleSubmit });
+	    }
+	  }]);
+
+	  return EvalPage;
+	}(_react.Component);
+
+	;
+
+	exports.default = EvalPage;
 
 /***/ }
 /******/ ]);
