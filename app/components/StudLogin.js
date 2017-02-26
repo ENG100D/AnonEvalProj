@@ -14,9 +14,16 @@ class StudLogin extends Component {
 
     this.state = {
       studentId: ''
-    }
+    };
 
 	};
+
+  updateStudentId(id) {
+    this.setState({
+      studentId: id.target.value
+    });
+    console.log(id.target.value);
+  };
 
   render() {
 
@@ -25,7 +32,7 @@ class StudLogin extends Component {
         <h1>Student Login</h1>
 
         <div>
-          <input type="text" value={this.state.studentId} onChange={this.setState} placeholder="Student ID"></input>
+          <input type="text" value={this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID"></input>
         </div>
 
         <div>
