@@ -23,6 +23,7 @@ var config = {
   messagingSenderId: "40786831761"
 };
 firebase.initializeApp(config);
+var db = firebase.database();
 
 app.use(express.static('public'));
 
@@ -35,3 +36,23 @@ app.listen(PORT, function () {
 app.get("/loggedin", function(req, res) {
   res.send(true);
 })
+
+/*app.post("/firebasePostTest", function(req, res){
+  var userId = "a99131327";
+  db.ref('students/a99131327').set({
+    name: 'Joe',
+    team: 4
+  });
+  res.send(true);
+})
+
+app.get("/firebaseGetTest", function(req, res){
+  var userId = "a99113372";
+  var ref = db.ref("students/"+userId);
+  ref.once("value").then(function(snapshot){
+    var name = snapshot.child("name").val();
+    console.log(name);
+  })
+  res.send(true);
+})*/
+
