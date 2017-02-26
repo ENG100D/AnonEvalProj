@@ -12,22 +12,30 @@ class StudLogin extends Component {
 		// Super the parent constructor
 		super(props);
 
+    this.state = {
+      studentId: ''
+    }
+
 	};
 
   render() {
-
-    const { fields: { email, password }, handleSubmit } = this.props;
 
     return (
       <div>
         <h1>Student Login</h1>
 
-        <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+        <div>
+          <input type="text" value={this.state.studentId} onChange={this.setState} placeholder="Student ID"></input>
+        </div>
+
+        <div>
+          <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+          <button className="" onClick={() => {this.context.router.push('/student/evaluation')}}>Login</button>
+        </div>
+
       </div>
     )
   };
 };
 
-export default reduxForm({
-  form: 'StudForm',
-  fields: ['email', 'password']})(StudLogin);
+export default StudLogin;

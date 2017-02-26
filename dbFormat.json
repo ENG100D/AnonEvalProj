@@ -1,0 +1,30 @@
+"instructor": {
+  "classes": {
+    "ENG100DA": {
+      "students": {
+        "A1231241": {
+          "firstName": "richard",
+          "lastName": "zheng",
+          "team": "3",
+          "score": 99,
+          "reviews": "",
+          ...
+        },
+        "A21321431": {
+          ...
+        }
+      }
+    },
+    "ENG100DB": {
+      "students": {
+        "s1": {
+          ...
+        },
+        "s2": {
+          ...
+        }
+      }
+    },
+    ...
+  }
+}
