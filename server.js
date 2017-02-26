@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyAW9Wo8Ta_KkbOeWV6yOR6u6J6KSXY8eAE",
-  authDomain: "anonevalproj.firebaseapp.com",
+  authDowmain: "anonevalproj.firebaseapp.com",
   databaseURL: "https://anonevalproj.firebaseio.com",
   storageBucket: "anonevalproj.appspot.com",
   messagingSenderId: "40786831761"
@@ -47,10 +47,11 @@ app.get("/loggedin", function(req, res) {
 })
 
 app.get("/firebaseGetTest", function(req, res){
-  var userId = "a99113372";
-  var ref = db.ref("students/"+userId);
+  var userId = "A99131372";
+  var name = null;
+  var ref = db.ref("instructor/classes/ENG100DA/students/"+userId);
   ref.once("value").then(function(snapshot){
-    var name = snapshot.child("name").val();
+    name = snapshot.child("firstName").val();
     console.log(name);
   })
   res.send(true);
