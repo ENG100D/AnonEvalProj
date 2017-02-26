@@ -17,12 +17,13 @@ app.use(function(req, res, next) {
 // Initialize Firebase
 var config = {
   apiKey: "AIzaSyAW9Wo8Ta_KkbOeWV6yOR6u6J6KSXY8eAE",
-  authDomain: "anonevalproj.firebaseapp.com",
+  authDowmain: "anonevalproj.firebaseapp.com",
   databaseURL: "https://anonevalproj.firebaseio.com",
   storageBucket: "anonevalproj.appspot.com",
   messagingSenderId: "40786831761"
 };
 firebase.initializeApp(config);
+var db = firebase.database();
 
 app.use(express.static('public'));
 
@@ -35,3 +36,24 @@ app.listen(PORT, function () {
 app.get("/loggedin", function(req, res) {
   res.send(true);
 })
+
+/*app.post("/firebasePostTest", function(req, res){
+  var userId = "a99131327";
+  db.ref('students/a99131327').set({
+    name: 'Joe',
+    team: 4
+  });
+  res.send(true);
+})
+
+app.get("/firebaseGetTest", function(req, res){
+  var userId = "A99131372";
+  var name = null;
+  var ref = db.ref("instructor/classes/ENG100DA/students/"+userId);
+  ref.once("value").then(function(snapshot){
+    name = snapshot.child("firstName").val();
+    console.log(name);
+  })
+  res.send(true);
+})*/
+
