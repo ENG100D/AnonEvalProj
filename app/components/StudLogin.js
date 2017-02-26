@@ -12,22 +12,37 @@ class StudLogin extends Component {
 		// Super the parent constructor
 		super(props);
 
+    this.state = {
+      studentId: ''
+    };
+
 	};
 
-  render() {
+  updateStudentId(id) {
+    this.setState({
+      studentId: id.target.value
+    });
+    console.log(id.target.value);
+  };
 
-    const { fields: { email, password }, handleSubmit } = this.props;
+  render() {
 
     return (
       <div>
         <h1>Student Login</h1>
 
-        <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+        <div>
+          <input type="text" value={this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID"></input>
+        </div>
+
+        <div>
+          <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+          <button className="" onClick={() => {this.context.router.push('/student/evaluation')}}>Login</button>
+        </div>
+
       </div>
     )
   };
 };
 
-export default reduxForm({
-  form: 'StudForm',
-  fields: ['email', 'password']})(StudLogin);
+export default StudLogin;

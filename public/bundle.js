@@ -62,7 +62,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _configureStore = __webpack_require__(459);
+	var _configureStore = __webpack_require__(460);
 
 	var conf = _interopRequireWildcard(_configureStore);
 
@@ -27041,31 +27041,31 @@
 
 	var _ClassSelect2 = _interopRequireDefault(_ClassSelect);
 
-	var _EvalPage = __webpack_require__(473);
+	var _EvalForm = __webpack_require__(253);
 
-	var _EvalPage2 = _interopRequireDefault(_EvalPage);
+	var _EvalForm2 = _interopRequireDefault(_EvalForm);
 
-	var _Home = __webpack_require__(453);
+	var _Home = __webpack_require__(454);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
-	var _InstrDash = __webpack_require__(454);
+	var _InstrDash = __webpack_require__(455);
 
 	var _InstrDash2 = _interopRequireDefault(_InstrDash);
 
-	var _InstrLogin = __webpack_require__(455);
+	var _InstrLogin = __webpack_require__(456);
 
 	var _InstrLogin2 = _interopRequireDefault(_InstrLogin);
 
-	var _Main = __webpack_require__(456);
+	var _Main = __webpack_require__(457);
 
 	var _Main2 = _interopRequireDefault(_Main);
 
-	var _StudLogin = __webpack_require__(457);
+	var _StudLogin = __webpack_require__(458);
 
 	var _StudLogin2 = _interopRequireDefault(_StudLogin);
 
-	var _TeammateSelect = __webpack_require__(458);
+	var _TeammateSelect = __webpack_require__(459);
 
 	var _TeammateSelect2 = _interopRequireDefault(_TeammateSelect);
 
@@ -27078,7 +27078,7 @@
 	  { path: '/', component: _Main2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'classes', component: _ClassSelect2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _EvalPage2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _EvalForm2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instrucor/dashboard', component: _InstrDash2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instructor/login', component: _InstrLogin2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'student/login', component: _StudLogin2.default }),
@@ -27158,6 +27158,14 @@
 
 	var _reduxForm = __webpack_require__(254);
 
+	var _TextField = __webpack_require__(452);
+
+	var _TextField2 = _interopRequireDefault(_TextField);
+
+	var _RadioOption = __webpack_require__(453);
+
+	var _RadioOption2 = _interopRequireDefault(_RadioOption);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27166,13 +27174,22 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	;
+
 	var EvalForm = function (_Component) {
 	  _inherits(EvalForm, _Component);
 
-	  function EvalForm() {
+	  function EvalForm(props) {
 	    _classCallCheck(this, EvalForm);
 
-	    return _possibleConstructorReturn(this, (EvalForm.__proto__ || Object.getPrototypeOf(EvalForm)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (EvalForm.__proto__ || Object.getPrototypeOf(EvalForm)).call(this, props));
+
+	    _this.state = {
+	      goalRadio: '',
+	      perfRadio: ''
+
+	    };
+	    return _this;
 	  }
 
 	  _createClass(EvalForm, [{
@@ -27181,42 +27198,179 @@
 	      var handleSubmit = this.props.handleSubmit;
 
 	      return _react2.default.createElement(
-	        'form',
-	        { onSubmit: handleSubmit },
+	        'div',
+	        null,
 	        _react2.default.createElement(
-	          'div',
+	          'h1',
 	          null,
-	          _react2.default.createElement(
-	            'label',
-	            { htmlFor: 'firstName' },
-	            'First Name'
-	          ),
-	          _react2.default.createElement(_reduxForm.Field, { name: 'firstName', component: 'input', type: 'text' })
+	          'Student Evaluation Form'
 	        ),
 	        _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
 	            'label',
-	            { htmlFor: 'lastName' },
-	            'Last Name'
+	            null,
+	            'Goals are clear, understood, and have the full commitment of team members.'
 	          ),
-	          _react2.default.createElement(_reduxForm.Field, { name: 'lastName', component: 'input', type: 'text' })
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
 	        ),
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
 	          'div',
 	          null,
 	          _react2.default.createElement(
 	            'label',
-	            { htmlFor: 'email' },
-	            'Email'
+	            null,
+	            'There is group concern for quality performance.'
 	          ),
-	          _react2.default.createElement(_reduxForm.Field, { name: 'email', component: 'input', type: 'email' })
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
 	        ),
+	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
-	          'button',
-	          { type: 'submit' },
-	          'Submit'
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Each member\u2019s abilities, knowledge, and experiences are fully utilized.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Members are willing to work through differences.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'All members are involved in discussion.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'We listen to each individual\u2019s input.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'All members are involved in decision-making.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Members express thoughts, feelings, and ideas freely.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'An atmosphere of trust exists in our group.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Members are comfortable in the roles they play in the group.'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_RadioOption2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'Describe your team\u2019s progress. Are you on track? (100-200 words)'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_TextField2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'How well is your team managing the project? Are you adhering to the guidelines set forth in the team contract? (100-200 words)'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_TextField2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'How well is your team managing intra- and inter-personal communication? (100-200 words)'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_TextField2.default, null)
+	        ),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            null,
+	            'How can your team\u2019s response to the design challenge be improved in the remaining time? Provide specific, concrete actions/steps. (100-200 words)'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(_TextField2.default, null)
 	        )
 	      );
 	    }
@@ -37145,8 +37299,174 @@
 	exports.default = propTypes;
 
 /***/ },
-/* 452 */,
+/* 452 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TextField = function (_Component) {
+	  _inherits(TextField, _Component);
+
+	  function TextField() {
+	    _classCallCheck(this, TextField);
+
+	    return _possibleConstructorReturn(this, (TextField.__proto__ || Object.getPrototypeOf(TextField)).apply(this, arguments));
+	  }
+
+	  _createClass(TextField, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('textarea', null);
+	    }
+	  }]);
+
+	  return TextField;
+	}(_react.Component);
+
+	;
+
+	exports.default = TextField;
+
+/***/ },
 /* 453 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var RadioOption = function (_Component) {
+	  _inherits(RadioOption, _Component);
+
+	  function RadioOption(props) {
+	    _classCallCheck(this, RadioOption);
+
+	    var _this = _possibleConstructorReturn(this, (RadioOption.__proto__ || Object.getPrototypeOf(RadioOption)).call(this, props));
+
+	    _this.state = {
+	      selectedOption: ''
+	    };
+	    return _this;
+	  }
+
+	  _createClass(RadioOption, [{
+	    key: 'handleOptionChange',
+	    value: function handleOptionChange(changeEvent) {
+	      this.setState({
+	        selectedOption: changeEvent.target.value
+	      });
+	    }
+	  }, {
+	    key: 'handleFormSubmit',
+	    value: function handleFormSubmit(formSubmitEvent) {
+	      formSubmitEvent.preventDefault();
+	      console.log('You have selected:', this.state.selectedOption);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'container' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-sm-12' },
+	            _react2.default.createElement(
+	              'form',
+	              { onSubmit: this.handleFormSubmit.bind(this) },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'radio' },
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'radio', value: 'option1', checked: this.state.selectedOption === 'option1', onChange: this.handleOptionChange.bind(this) }),
+	                  'Strongly Disagree'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'radio' },
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'radio', value: 'option2', checked: this.state.selectedOption === 'option2', onChange: this.handleOptionChange.bind(this) }),
+	                  'Disagree'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'radio' },
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'radio', value: 'option3', checked: this.state.selectedOption === 'option3', onChange: this.handleOptionChange.bind(this) }),
+	                  'Agree'
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'radio' },
+	                _react2.default.createElement(
+	                  'label',
+	                  null,
+	                  _react2.default.createElement('input', { type: 'radio', value: 'option4', checked: this.state.selectedOption === 'option4', onChange: this.handleOptionChange.bind(this) }),
+	                  'Strongly Agree'
+	                )
+	              )
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return RadioOption;
+	}(_react.Component);
+
+	;
+
+	exports.default = RadioOption;
+
+/***/ },
+/* 454 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37223,7 +37543,7 @@
 	exports.default = Home;
 
 /***/ },
-/* 454 */
+/* 455 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37278,7 +37598,7 @@
 	exports.default = InstrDash;
 
 /***/ },
-/* 455 */
+/* 456 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37348,7 +37668,7 @@
 	exports.default = InstrLogin;
 
 /***/ },
-/* 456 */
+/* 457 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37363,7 +37683,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Home = __webpack_require__(453);
+	var _Home = __webpack_require__(454);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
@@ -37404,7 +37724,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 457 */
+/* 458 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37435,24 +37755,32 @@
 	  function StudLogin(props) {
 	    _classCallCheck(this, StudLogin);
 
+	    var _this = _possibleConstructorReturn(this, (StudLogin.__proto__ || Object.getPrototypeOf(StudLogin)).call(this, props));
 	    // Super the parent constructor
-	    return _possibleConstructorReturn(this, (StudLogin.__proto__ || Object.getPrototypeOf(StudLogin)).call(this, props));
+
+
+	    _this.state = {
+	      studentId: ''
+	    };
+
+	    return _this;
 	  }
 
 	  // Allow page rendering with actions
 
 
 	  _createClass(StudLogin, [{
+	    key: 'updateStudentId',
+	    value: function updateStudentId(id) {
+	      this.setState({
+	        studentId: id.target.value
+	      });
+	      console.log(id.target.value);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
-
-	      var _props = this.props,
-	          _props$fields = _props.fields,
-	          email = _props$fields.email,
-	          password = _props$fields.password,
-	          handleSubmit = _props.handleSubmit;
-
 
 	      return _react2.default.createElement(
 	        'div',
@@ -37463,11 +37791,27 @@
 	          'Student Login'
 	        ),
 	        _react2.default.createElement(
-	          'button',
-	          { className: '', onClick: function onClick() {
-	              _this2.context.router.push('/');
-	            } },
-	          'Back'
+	          'div',
+	          null,
+	          _react2.default.createElement('input', { type: 'text', value: this.state.studentId, onChange: this.updateStudentId.bind(this), placeholder: 'Student ID' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'button',
+	            { className: '', onClick: function onClick() {
+	                _this2.context.router.push('/');
+	              } },
+	            'Back'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: '', onClick: function onClick() {
+	                _this2.context.router.push('/student/evaluation');
+	              } },
+	            'Login'
+	          )
 	        )
 	      );
 	    }
@@ -37481,12 +37825,10 @@
 	};
 	;
 
-	exports.default = (0, _reduxForm.reduxForm)({
-	  form: 'StudForm',
-	  fields: ['email', 'password'] })(StudLogin);
+	exports.default = StudLogin;
 
 /***/ },
-/* 458 */
+/* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37541,7 +37883,7 @@
 	exports.default = TeammateSelect;
 
 /***/ },
-/* 459 */
+/* 460 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37555,7 +37897,7 @@
 
 	var redux = _interopRequireWildcard(_redux);
 
-	var _reduxPromise = __webpack_require__(460);
+	var _reduxPromise = __webpack_require__(461);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
@@ -37581,7 +37923,7 @@
 	;
 
 /***/ },
-/* 460 */
+/* 461 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37592,7 +37934,7 @@
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(461);
+	var _fluxStandardAction = __webpack_require__(462);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -37619,7 +37961,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37630,7 +37972,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(462);
+	var _lodashIsplainobject = __webpack_require__(463);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -37649,7 +37991,7 @@
 	}
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -37660,9 +38002,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(463),
-	    isArguments = __webpack_require__(464),
-	    keysIn = __webpack_require__(465);
+	var baseFor = __webpack_require__(464),
+	    isArguments = __webpack_require__(465),
+	    keysIn = __webpack_require__(466);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -37758,7 +38100,7 @@
 
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports) {
 
 	/**
@@ -37812,7 +38154,7 @@
 
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports) {
 
 	/**
@@ -38047,7 +38389,7 @@
 
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -38058,8 +38400,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(464),
-	    isArray = __webpack_require__(466);
+	var isArguments = __webpack_require__(465),
+	    isArray = __webpack_require__(467);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -38185,7 +38527,7 @@
 
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports) {
 
 	/**
@@ -38369,74 +38711,6 @@
 
 	module.exports = isArray;
 
-
-/***/ },
-/* 467 */,
-/* 468 */,
-/* 469 */,
-/* 470 */,
-/* 471 */,
-/* 472 */,
-/* 473 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _EvalForm = __webpack_require__(253);
-
-	var _EvalForm2 = _interopRequireDefault(_EvalForm);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var EvalPage = function (_Component) {
-	  _inherits(EvalPage, _Component);
-
-	  function EvalPage() {
-	    var _ref;
-
-	    var _temp, _this, _ret;
-
-	    _classCallCheck(this, EvalPage);
-
-	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-	      args[_key] = arguments[_key];
-	    }
-
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = EvalPage.__proto__ || Object.getPrototypeOf(EvalPage)).call.apply(_ref, [this].concat(args))), _this), _this.handleSubmit = function (values) {
-	      // Do something with the form values
-	      console.log(values);
-	    }, _temp), _possibleConstructorReturn(_this, _ret);
-	  }
-
-	  _createClass(EvalPage, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(_EvalForm2.default, { onSubmit: this.handleSubmit });
-	    }
-	  }]);
-
-	  return EvalPage;
-	}(_react.Component);
-
-	;
-
-	exports.default = EvalPage;
 
 /***/ }
 /******/ ]);

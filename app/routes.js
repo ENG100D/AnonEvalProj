@@ -4,7 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 
 /* Components */
 import ClassSelect from 'ClassSelect';
-import EvalPage from 'EvalPage';
+import EvalForm from 'EvalForm';
 import Home from 'Home';
 import InstrDash from 'InstrDash';
 import InstrLogin from 'InstrLogin';
@@ -17,7 +17,7 @@ export default (
   <Route path="/" component={Main}>
     <IndexRoute component={Home} />
     <Route path="classes" component={ClassSelect} />
-    <Route path="student/evaluation" component={EvalPage} />
+    <Route path="student/evaluation" component={EvalForm} />
     <Route path="instrucor/dashboard" component={InstrDash} />
     <Route path="instructor/login" component={InstrLogin} />
     <Route path="student/login" component={StudLogin} />
