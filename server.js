@@ -16,11 +16,11 @@ app.use(function(req, res, next) {
 
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyAW9Wo8Ta_KkbOeWV6yOR6u6J6KSXY8eAE",
-  authDomain: "anonevalproj.firebaseapp.com",
-  databaseURL: "https://anonevalproj.firebaseio.com",
-  storageBucket: "anonevalproj.appspot.com",
-  messagingSenderId: "40786831761"
+  apiKey: "AIzaSyBQ_4j_0ExPRXwowMtHsYlVn0F6UOCYBXQ",
+  authDomain: "friendlychat-20331.firebaseapp.com",
+  databaseURL: "https://friendlychat-20331.firebaseio.com",
+  storageBucket: "friendlychat-20331.appspot.com",
+  messagingSenderId: "781201579821"
 };
 firebase.initializeApp(config);
 
