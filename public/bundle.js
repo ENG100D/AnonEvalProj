@@ -62,7 +62,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _configureStore = __webpack_require__(460);
+	var _configureStore = __webpack_require__(461);
 
 	var conf = _interopRequireWildcard(_configureStore);
 
@@ -27069,6 +27069,14 @@
 
 	var _TeammateSelect2 = _interopRequireDefault(_TeammateSelect);
 
+	var _ExampleForm = __webpack_require__(460);
+
+	var _ExampleForm2 = _interopRequireDefault(_ExampleForm);
+
+	var _ExampleParent = __webpack_require__(470);
+
+	var _ExampleParent2 = _interopRequireDefault(_ExampleParent);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/* Components */
@@ -27078,7 +27086,7 @@
 	  { path: '/', component: _Main2.default },
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'classes', component: _ClassSelect2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _EvalForm2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'student/evaluation', component: _ExampleParent2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instrucor/dashboard', component: _InstrDash2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'instructor/login', component: _InstrLogin2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'student/login', component: _StudLogin2.default }),
@@ -27174,8 +27182,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	;
-
 	var EvalForm = function (_Component) {
 	  _inherits(EvalForm, _Component);
 
@@ -27184,22 +27190,21 @@
 
 	    var _this = _possibleConstructorReturn(this, (EvalForm.__proto__ || Object.getPrototypeOf(EvalForm)).call(this, props));
 
-	    _this.state = {
-	      goalRadio: '',
-	      perfRadio: ''
-
-	    };
+	    _this.state = {};
 	    return _this;
 	  }
 
 	  _createClass(EvalForm, [{
+	    key: 'handleSubmit',
+	    value: function handleSubmit(val) {
+	      console.log("Hello");
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var handleSubmit = this.props.handleSubmit;
-
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        'form',
+	        { onSubmit: this.handleSubmit.bind(this) },
 	        _react2.default.createElement(
 	          'h1',
 	          null,
@@ -27214,7 +27219,7 @@
 	            'Goals are clear, understood, and have the full commitment of team members.'
 	          ),
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(_RadioOption2.default, null)
+	          _react2.default.createElement(_RadioOption2.default, { id: '1' })
 	        ),
 	        _react2.default.createElement('br', null),
 	        _react2.default.createElement(
@@ -27371,6 +27376,11 @@
 	          ),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(_TextField2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'submit' },
+	          'Submit'
 	        )
 	      );
 	    }
@@ -27379,9 +27389,9 @@
 	  return EvalForm;
 	}(_react.Component);
 
+	;
+
 	// Decorate the form component
-
-
 	EvalForm = (0, _reduxForm.reduxForm)({
 	  form: 'eval' // a unique name for this form
 	})(EvalForm);
@@ -37361,6 +37371,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reduxForm = __webpack_require__(254);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37372,87 +37384,29 @@
 	var RadioOption = function (_Component) {
 	  _inherits(RadioOption, _Component);
 
-	  function RadioOption(props) {
+	  function RadioOption() {
 	    _classCallCheck(this, RadioOption);
 
-	    var _this = _possibleConstructorReturn(this, (RadioOption.__proto__ || Object.getPrototypeOf(RadioOption)).call(this, props));
-
-	    _this.state = {
-	      selectedOption: ''
-	    };
-	    return _this;
+	    return _possibleConstructorReturn(this, (RadioOption.__proto__ || Object.getPrototypeOf(RadioOption)).apply(this, arguments));
 	  }
 
 	  _createClass(RadioOption, [{
-	    key: 'handleOptionChange',
-	    value: function handleOptionChange(changeEvent) {
-	      this.setState({
-	        selectedOption: changeEvent.target.value
-	      });
-	    }
-	  }, {
-	    key: 'handleFormSubmit',
-	    value: function handleFormSubmit(formSubmitEvent) {
-	      formSubmitEvent.preventDefault();
-	      console.log('You have selected:', this.state.selectedOption);
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'container' },
+	        null,
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'row' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'col-sm-12' },
-	            _react2.default.createElement(
-	              'form',
-	              { onSubmit: this.handleFormSubmit.bind(this) },
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'radio' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  _react2.default.createElement('input', { type: 'radio', value: 'option1', checked: this.state.selectedOption === 'option1', onChange: this.handleOptionChange.bind(this) }),
-	                  'Strongly Disagree'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'radio' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  _react2.default.createElement('input', { type: 'radio', value: 'option2', checked: this.state.selectedOption === 'option2', onChange: this.handleOptionChange.bind(this) }),
-	                  'Disagree'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'radio' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  _react2.default.createElement('input', { type: 'radio', value: 'option3', checked: this.state.selectedOption === 'option3', onChange: this.handleOptionChange.bind(this) }),
-	                  'Agree'
-	                )
-	              ),
-	              _react2.default.createElement(
-	                'div',
-	                { className: 'radio' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  _react2.default.createElement('input', { type: 'radio', value: 'option4', checked: this.state.selectedOption === 'option4', onChange: this.handleOptionChange.bind(this) }),
-	                  'Strongly Agree'
-	                )
-	              )
-	            )
-	          )
+	          'label',
+	          null,
+	          _react2.default.createElement(_reduxForm.Field, { name: 'agree', component: 'input', type: 'radio', value: 'val1' }),
+	          ' Val1'
+	        ),
+	        _react2.default.createElement(
+	          'label',
+	          null,
+	          _react2.default.createElement(_reduxForm.Field, { name: 'agree', component: 'input', type: 'radio', value: 'val2' }),
+	          ' Val2'
 	        )
 	      );
 	    }
@@ -37891,23 +37845,120 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reduxForm = __webpack_require__(254);
+
+	var _RadioOption = __webpack_require__(453);
+
+	var _RadioOption2 = _interopRequireDefault(_RadioOption);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ExampleForm = function (_Component) {
+	  _inherits(ExampleForm, _Component);
+
+	  function ExampleForm() {
+	    _classCallCheck(this, ExampleForm);
+
+	    return _possibleConstructorReturn(this, (ExampleForm.__proto__ || Object.getPrototypeOf(ExampleForm)).apply(this, arguments));
+	  }
+
+	  _createClass(ExampleForm, [{
+	    key: 'render',
+	    value: function render() {
+	      var handleSubmit = this.props.handleSubmit;
+
+	      return _react2.default.createElement(
+	        'form',
+	        { onSubmit: handleSubmit },
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            { htmlFor: 'firstName' },
+	            'First Name'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'firstName', component: 'input', type: 'text' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(
+	            'label',
+	            { htmlFor: 'email' },
+	            'Email'
+	          ),
+	          _react2.default.createElement(_reduxForm.Field, { name: 'email', component: 'input', type: 'email' })
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_reduxForm.Field, { component: _RadioOption2.default, name: 'agree' })
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { type: 'submit' },
+	          'Submit'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return ExampleForm;
+	}(_react.Component);
+
+	;
+
+	// Decorate the form component
+	ExampleForm = (0, _reduxForm.reduxForm)({
+	  form: 'eval' // a unique name for this form
+	})(ExampleForm);
+
+	exports.default = ExampleForm;
+
+/***/ },
+/* 461 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.configure = configure;
 
 	var _redux = __webpack_require__(224);
 
 	var redux = _interopRequireWildcard(_redux);
 
-	var _reduxPromise = __webpack_require__(461);
+	var _reduxPromise = __webpack_require__(462);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
 	var _reduxForm = __webpack_require__(254);
 
+	var _reducers = __webpack_require__(469);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+	/* Node Modules */
 	function configure() {
+
 	  // Combine all custom reducers
 	  var reducer = redux.combineReducers({
 	    form: _reduxForm.reducer
@@ -37919,11 +37970,10 @@
 	  }));
 
 	  return store;
-	} /* Node Modules */
-	;
+	};
 
 /***/ },
-/* 461 */
+/* 462 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37934,7 +37984,7 @@
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(462);
+	var _fluxStandardAction = __webpack_require__(463);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -37961,7 +38011,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 462 */
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37972,7 +38022,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(463);
+	var _lodashIsplainobject = __webpack_require__(464);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -37991,7 +38041,7 @@
 	}
 
 /***/ },
-/* 463 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -38002,9 +38052,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(464),
-	    isArguments = __webpack_require__(465),
-	    keysIn = __webpack_require__(466);
+	var baseFor = __webpack_require__(465),
+	    isArguments = __webpack_require__(466),
+	    keysIn = __webpack_require__(467);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -38100,7 +38150,7 @@
 
 
 /***/ },
-/* 464 */
+/* 465 */
 /***/ function(module, exports) {
 
 	/**
@@ -38154,7 +38204,7 @@
 
 
 /***/ },
-/* 465 */
+/* 466 */
 /***/ function(module, exports) {
 
 	/**
@@ -38389,7 +38439,7 @@
 
 
 /***/ },
-/* 466 */
+/* 467 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -38400,8 +38450,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(465),
-	    isArray = __webpack_require__(467);
+	var isArguments = __webpack_require__(466),
+	    isArray = __webpack_require__(468);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -38527,7 +38577,7 @@
 
 
 /***/ },
-/* 467 */
+/* 468 */
 /***/ function(module, exports) {
 
 	/**
@@ -38711,6 +38761,96 @@
 
 	module.exports = isArray;
 
+
+/***/ },
+/* 469 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	// Initial state params
+	var INITIAL_STATE = { all: [] };
+
+	// export default function(state=INITIAL_STATE, action) {
+	// 	switch(action.type) {
+	//
+	// 	default:
+	// 		console.log(action);
+	// 		return state;
+	// 	}
+	//
+	// }
+
+	var initialUserState = exports.initialUserState = {
+		firstName: '',
+		lastName: '',
+		op1: false
+	};
+
+/***/ },
+/* 470 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ExampleForm = __webpack_require__(460);
+
+	var _ExampleForm2 = _interopRequireDefault(_ExampleForm);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ExampleParent = function (_Component) {
+	  _inherits(ExampleParent, _Component);
+
+	  function ExampleParent() {
+	    var _ref;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, ExampleParent);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ExampleParent.__proto__ || Object.getPrototypeOf(ExampleParent)).call.apply(_ref, [this].concat(args))), _this), _this.handleSubmit = function (values) {
+	      // Do something with the form values
+	      console.log(values);
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(ExampleParent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_ExampleForm2.default, { onSubmit: this.handleSubmit });
+	    }
+	  }]);
+
+	  return ExampleParent;
+	}(_react.Component);
+
+	;
+
+	exports.default = ExampleParent;
 
 /***/ }
 /******/ ]);
