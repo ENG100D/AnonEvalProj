@@ -9,9 +9,10 @@ class InstrLogin extends Component {
 
   render() {
     return (
-      <div>
+      <div className ="jumbotron container-fluid">
         <h1>Instructor Login</h1>
-        <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+
+        <button className="myButton" onClick={() => {this.context.router.push('/')}}>Back</button>
       </div>
     );
   };
