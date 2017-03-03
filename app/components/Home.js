@@ -14,7 +14,7 @@ class Home extends Component {
           Welcome to Peer Review
         </h1>
 
-        <button className="" onClick={() => {this.context.router.push('instructor/login')}}>Instructor</button>
+        <button className="btn" onClick={() => {this.context.router.push('instructor/login')}}>Instructor</button>
         <button className="" onClick={() => {this.context.router.push('student/login')}}>Student</button>
       </div>
     )
