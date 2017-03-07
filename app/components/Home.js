@@ -9,14 +9,21 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className = "container-fluid jumbotron">
+      <div className="row">
+        <div className ="col-md-8">
         <h1>
           Welcome to Peer Review
         </h1>
 
-        <button className="" onClick={() => {this.context.router.push('instructor/login')}}>Instructor</button>
-        <button className="" onClick={() => {this.context.router.push('student/login')}}>Student</button>
+        <div className = "container">
+    				  <button className="myButton" onClick={() => {this.context.router.push('instructor/login')}}>Instructor</button>
+    				  <button className="myButton" onClick={() => {this.context.router.push('student/login')}}>Student</button>
+        </div>
       </div>
+      </div>
+      </div>
+
     )
   };
 };
