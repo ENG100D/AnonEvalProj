@@ -62,7 +62,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _configureStore = __webpack_require__(460);
+	var _configureStore = __webpack_require__(463);
 
 	var conf = _interopRequireWildcard(_configureStore);
 
@@ -27089,13 +27089,15 @@
 /* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _divCenter;
 
 	var _react = __webpack_require__(1);
 
@@ -27109,6 +27111,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	var divCenter = (_divCenter = { width: "400px",
+	  height: "200px",
+	  position: "relative"
+	}, _defineProperty(_divCenter, "position", "absolute"), _defineProperty(_divCenter, "top", "0"), _defineProperty(_divCenter, "bottom", "0"), _defineProperty(_divCenter, "left", "0"), _defineProperty(_divCenter, "right", "0"), _defineProperty(_divCenter, "margin", "auto"), _divCenter);
+
 	var ClassSelect = function (_Component) {
 	  _inherits(ClassSelect, _Component);
 
@@ -27119,23 +27128,99 @@
 	  }
 
 	  _createClass(ClassSelect, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
+	      var _this2 = this;
+
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Class Selection'
-	        )
+	          "div",
+	          { style: divCenter },
+	          _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(
+	              "center",
+	              null,
+	              _react2.default.createElement(
+	                "h1",
+	                null,
+	                "Class Select"
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(
+	            "div",
+	            { className: "dropdown" },
+	            _react2.default.createElement(
+	              "center",
+	              null,
+	              _react2.default.createElement(
+	                "button",
+	                { className: "btn btn-primary dropdown-toggle", type: "button", "data-toggle": "dropdown" },
+	                "Choose Class",
+	                _react2.default.createElement("span", { className: "caret" })
+	              ),
+	              _react2.default.createElement(
+	                "ul",
+	                { className: "dropdown-menu" },
+	                _react2.default.createElement(
+	                  "center",
+	                  null,
+	                  _react2.default.createElement(
+	                    "li",
+	                    null,
+	                    _react2.default.createElement(
+	                      "a",
+	                      { href: "" },
+	                      "XYZ"
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    "li",
+	                    null,
+	                    _react2.default.createElement(
+	                      "a",
+	                      { href: "" },
+	                      "ABC"
+	                    )
+	                  ),
+	                  _react2.default.createElement(
+	                    "li",
+	                    null,
+	                    _react2.default.createElement(
+	                      "a",
+	                      { href: "" },
+	                      "LMAO"
+	                    )
+	                  )
+	                )
+	              )
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "button",
+	          { className: "myButton", onClick: function onClick() {
+	              _this2.context.router.push('instructor/team');
+	            } },
+	          "Continue"
+	        ),
+	        _react2.default.createElement("br", null)
 	      );
 	    }
+	    // Allow page rendering with actions
+
 	  }]);
 
 	  return ClassSelect;
 	}(_react.Component);
 
+	ClassSelect.contextTypes = {
+	  router: _react.PropTypes.object
+	};
 	;
 
 	exports.default = ClassSelect;
@@ -37831,13 +37916,15 @@
 /* 459 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _divCenter;
 
 	var _react = __webpack_require__(1);
 
@@ -37851,39 +37938,111 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var TeammateSelect = function (_Component) {
-	  _inherits(TeammateSelect, _Component);
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-	  function TeammateSelect() {
-	    _classCallCheck(this, TeammateSelect);
+	var divCenter = (_divCenter = { width: "400px",
+	  height: "200px",
+	  position: "relative"
+	}, _defineProperty(_divCenter, "position", "absolute"), _defineProperty(_divCenter, "top", "0"), _defineProperty(_divCenter, "bottom", "0"), _defineProperty(_divCenter, "left", "0"), _defineProperty(_divCenter, "right", "0"), _defineProperty(_divCenter, "margin", "auto"), _divCenter);
 
-	    return _possibleConstructorReturn(this, (TeammateSelect.__proto__ || Object.getPrototypeOf(TeammateSelect)).apply(this, arguments));
+	var ClassSelect = function (_Component) {
+	  _inherits(ClassSelect, _Component);
+
+	  function ClassSelect() {
+	    _classCallCheck(this, ClassSelect);
+
+	    return _possibleConstructorReturn(this, (ClassSelect.__proto__ || Object.getPrototypeOf(ClassSelect)).apply(this, arguments));
 	  }
 
-	  _createClass(TeammateSelect, [{
-	    key: 'render',
+	  _createClass(ClassSelect, [{
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        null,
+	        "div",
+	        { style: divCenter },
 	        _react2.default.createElement(
-	          'h1',
+	          "div",
 	          null,
-	          'Teammate Select'
+	          _react2.default.createElement(
+	            "center",
+	            null,
+	            _react2.default.createElement(
+	              "h1",
+	              null,
+	              "Peer Select"
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "div",
+	          { className: "dropdown" },
+	          _react2.default.createElement(
+	            "center",
+	            null,
+	            _react2.default.createElement(
+	              "button",
+	              { className: "btn btn-primary dropdown-toggle", type: "button", "data-toggle": "dropdown" },
+	              "Choose Peer",
+	              _react2.default.createElement("span", { className: "caret" })
+	            ),
+	            _react2.default.createElement(
+	              "ul",
+	              { className: "dropdown-menu" },
+	              _react2.default.createElement(
+	                "center",
+	                null,
+	                _react2.default.createElement(
+	                  "li",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "" },
+	                    "XYZ"
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "li",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "" },
+	                    "ABC"
+	                  )
+	                ),
+	                _react2.default.createElement(
+	                  "li",
+	                  null,
+	                  _react2.default.createElement(
+	                    "a",
+	                    { href: "" },
+	                    "LMAO"
+	                  )
+	                )
+	              )
+	            )
+	          )
 	        )
 	      );
 	    }
+	    // Allow page rendering with actions
+
 	  }]);
 
-	  return TeammateSelect;
+	  return ClassSelect;
 	}(_react.Component);
 
+	ClassSelect.contextTypes = {
+	  router: _react.PropTypes.object
+	};
 	;
 
-	exports.default = TeammateSelect;
+	exports.default = ClassSelect;
 
 /***/ },
-/* 460 */
+/* 460 */,
+/* 461 */,
+/* 462 */,
+/* 463 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37897,7 +38056,7 @@
 
 	var redux = _interopRequireWildcard(_redux);
 
-	var _reduxPromise = __webpack_require__(461);
+	var _reduxPromise = __webpack_require__(464);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
@@ -37923,7 +38082,7 @@
 	;
 
 /***/ },
-/* 461 */
+/* 464 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37934,7 +38093,7 @@
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(462);
+	var _fluxStandardAction = __webpack_require__(465);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -37961,7 +38120,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 462 */
+/* 465 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37972,7 +38131,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(463);
+	var _lodashIsplainobject = __webpack_require__(466);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -37991,7 +38150,7 @@
 	}
 
 /***/ },
-/* 463 */
+/* 466 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -38002,9 +38161,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(464),
-	    isArguments = __webpack_require__(465),
-	    keysIn = __webpack_require__(466);
+	var baseFor = __webpack_require__(467),
+	    isArguments = __webpack_require__(468),
+	    keysIn = __webpack_require__(469);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -38100,7 +38259,7 @@
 
 
 /***/ },
-/* 464 */
+/* 467 */
 /***/ function(module, exports) {
 
 	/**
@@ -38154,7 +38313,7 @@
 
 
 /***/ },
-/* 465 */
+/* 468 */
 /***/ function(module, exports) {
 
 	/**
@@ -38389,7 +38548,7 @@
 
 
 /***/ },
-/* 466 */
+/* 469 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -38400,8 +38559,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(465),
-	    isArray = __webpack_require__(467);
+	var isArguments = __webpack_require__(468),
+	    isArray = __webpack_require__(470);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -38527,7 +38686,7 @@
 
 
 /***/ },
-/* 467 */
+/* 470 */
 /***/ function(module, exports) {
 
 	/**
