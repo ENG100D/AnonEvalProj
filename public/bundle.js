@@ -37487,36 +37487,39 @@
 
 	      return _react2.default.createElement(
 	        "div",
-	        { className: "container-fluid jumbotron" },
+	        { className: "" },
 	        _react2.default.createElement(
 	          "div",
-	          { className: "row" },
+	          { className: "container" },
 	          _react2.default.createElement(
 	            "div",
-	            { className: "col-md-8" },
-	            _react2.default.createElement(
-	              "h1",
-	              null,
-	              "Welcome to Peer Review"
-	            ),
-	            _react2.default.createElement(
-	              "div",
-	              { className: "container" },
-	              _react2.default.createElement(
-	                "button",
-	                { className: "myButton", onClick: function onClick() {
-	                    _this2.context.router.push('instructor/login');
-	                  } },
-	                "Instructor"
-	              ),
-	              _react2.default.createElement(
-	                "button",
-	                { className: "myButton", onClick: function onClick() {
-	                    _this2.context.router.push('student/login');
-	                  } },
-	                "Student"
-	              )
-	            )
+	            { "class": "span4" },
+	            _react2.default.createElement("img", { className: "center-block", src: "/img/UCSD.png" })
+	          ),
+	          _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Welcome to Peer Review."
+	          ),
+	          _react2.default.createElement(
+	            "p",
+	            null,
+	            " \"need a tag line here team\" "
+	          ),
+	          _react2.default.createElement("hr", { className: "style1" }),
+	          _react2.default.createElement(
+	            "button",
+	            { className: "myButton", onClick: function onClick() {
+	                _this2.context.router.push('instructor/login');
+	              } },
+	            "Instructor"
+	          ),
+	          _react2.default.createElement(
+	            "button",
+	            { className: "myButton", onClick: function onClick() {
+	                _this2.context.router.push('student/login');
+	              } },
+	            "Student"
 	          )
 	        )
 	      );
