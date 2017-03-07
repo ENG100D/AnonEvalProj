@@ -1,5 +1,6 @@
 var express = require('express');
 var firebase = require("firebase");
+var bodyParser = require('body-parser');
 
 // Create express app
 var app = express();
@@ -13,6 +14,8 @@ app.use(function(req, res, next) {
     next();
   }
 });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Initialize Firebase
 var config = {
@@ -35,6 +38,15 @@ app.listen(PORT, function () {
 /* REST APIS */
 app.get("/loggedin", function(req, res) {
   res.send(true);
+})
+
+app.post("/createAccount", function(req, res){
+  console.log(req.body);
+  res.send(true);
+})
+
+app.post("/logIn", function(req, res){
+
 })
 
 /*app.post("/firebasePostTest", function(req, res){

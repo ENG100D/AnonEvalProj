@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { reduxForm } from 'redux-form';
+import { Control, Form, actions } from 'react-redux-form';
 
 class StudLogin extends Component {
 
@@ -12,18 +12,28 @@ class StudLogin extends Component {
 		// Super the parent constructor
 		super(props);
 
-    this.state = {
+    /*this.state = {
       studentId: ''
-    };
+    };*/
 
 	};
 
-  updateStudentId(id) {
+  handleSubmit(user) {
+    const { dispatch } = this.props;
+    console.log(user);
+
+    // Do whatever you like in here.
+    // You can use actions such as:
+    // dispatch(actions.submit('user', somePromise));
+    // etc.
+  }
+
+  /*updateStudentId(id) {
     this.setState({
       studentId: id.target.value
     });
     console.log(id.target.value);
-  };
+  };*/
 
   render() {
 
@@ -32,7 +42,14 @@ class StudLogin extends Component {
         <h1>Student Login</h1>
 
         <div>
-          <input type="text" value={this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID"></input>
+          <Form model="user" onSubmit={(user) => this.handleSubmit(user)}>
+            <label>PID:</label>
+            <Control.text model="user.pid" />
+
+            <button type="submit">
+              Login!
+            </button>
+          </Form>
         </div>
 
         <div>
