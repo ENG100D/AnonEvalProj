@@ -13,36 +13,36 @@ const divCenter={width: "400px",
 
 
 class ClassSelect extends Component {
-	 // Allow page rendering with actions
+   // Allow page rendering with actions
   static contextTypes = {
     router: PropTypes.object
   };
   render() {
     return (
-    	
+    
       <div style={divCenter}>
       <div>
       <center>
-        <h1>Peer Select</h1>
+        <h1>Team Select</h1>
         </center>
       </div>
       
      
-  		<div className="dropdown" >
-  		 <center>
-		  <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Peer
-		  <span className="caret"></span></button>
-		  <ul className="dropdown-menu">
-		  <center>
-		    <li><a href="">XYZ</a></li>
-		    <li><a href="">ABC</a></li>
-		    <li><a href="">LMAO</a></li>
-		    </center>
-		  </ul>
-		  </center>
-		</div>
+      <div className="dropdown" >
+       <center>
+      <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Team
+      <span className="caret"></span></button>
+      <ul className="dropdown-menu">
+      <center>
+        <li><a href="">XYZ</a></li>
+        <li><a href="">ABC</a></li>
+        <li><a href="">LMAO</a></li>
+        </center>
+      </ul>
+      </center>
+    </div>
      </div>
-    
+     
     );
   };
 };
