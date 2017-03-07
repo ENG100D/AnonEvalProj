@@ -41,12 +41,39 @@ app.get("/loggedin", function(req, res) {
 })
 
 app.post("/createAccount", function(req, res){
-  console.log(req.body);
-  res.send(true);
+  console.log(req.body.email);
+  console.log(req.body.password);
+  firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+  .then(function(user){
+    console.log("we here");
+    res.send(true);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    res.send(errorMessage);
+    // ...
+  });
 })
 
-app.post("/logIn", function(req, res){
-
+app.post("/signIn", function(req, res){
+  console.log(req.body.email);
+  console.log(req.body.password);
+  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+  .then(function(user){
+    console.log("we here");
+    res.send(true);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    res.send(errorMessage);
+    // ...
+  });
 })
 
 /*app.post("/firebasePostTest", function(req, res){
