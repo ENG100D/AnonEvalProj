@@ -37493,7 +37493,7 @@
 	          { className: "container" },
 	          _react2.default.createElement(
 	            "div",
-	            { "class": "span4" },
+	            null,
 	            _react2.default.createElement("img", { className: "center-block", src: "/img/UCSD.png" })
 	          ),
 	          _react2.default.createElement(
@@ -37601,7 +37601,7 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -37619,46 +37619,88 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var InstrLogin = function (_Component) {
-	  _inherits(InstrLogin, _Component);
+	    _inherits(InstrLogin, _Component);
 
-	  function InstrLogin() {
-	    _classCallCheck(this, InstrLogin);
+	    function InstrLogin() {
+	        _classCallCheck(this, InstrLogin);
 
-	    return _possibleConstructorReturn(this, (InstrLogin.__proto__ || Object.getPrototypeOf(InstrLogin)).apply(this, arguments));
-	  }
-
-	  _createClass(InstrLogin, [{
-	    key: "render",
-	    value: function render() {
-	      var _this2 = this;
-
-	      return _react2.default.createElement(
-	        "div",
-	        { className: "jumbotron container-fluid" },
-	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          "Instructor Login"
-	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { className: "myButton", onClick: function onClick() {
-	              _this2.context.router.push('/');
-	            } },
-	          "Back"
-	        )
-	      );
+	        return _possibleConstructorReturn(this, (InstrLogin.__proto__ || Object.getPrototypeOf(InstrLogin)).apply(this, arguments));
 	    }
 
-	    // Allow page rendering with actions
+	    _createClass(InstrLogin, [{
+	        key: "render",
+	        value: function render() {
+	            var _this2 = this;
 
-	  }]);
+	            return _react2.default.createElement(
+	                "div",
+	                { className: "container" },
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "row" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "col-sm-6 col-md-4 col-md-offset-4" },
+	                        _react2.default.createElement(
+	                            "h1",
+	                            { className: "text-center login-title" },
+	                            "Instructor Login"
+	                        ),
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "account-wall" },
+	                            _react2.default.createElement("img", { className: "profile-img", src: "/img/teacher-icon.png",
+	                                alt: "" }),
+	                            _react2.default.createElement(
+	                                "form",
+	                                { className: "form-signin" },
+	                                _react2.default.createElement("input", { type: "text", className: "form-control", placeholder: "Username" }),
+	                                _react2.default.createElement("input", { type: "password", className: "form-control", placeholder: "Password" }),
+	                                _react2.default.createElement(
+	                                    "button",
+	                                    { className: "myButton btn btn-primary btn-block", onClick: function onClick() {
+	                                            _this2.context.router.push('instructor/login');
+	                                        } },
+	                                    "Sign In"
+	                                ),
+	                                _react2.default.createElement(
+	                                    "button",
+	                                    { className: "myButton btn btn-primary btn-block", onClick: function onClick() {
+	                                            _this2.context.router.push('/');
+	                                        } },
+	                                    "Cancel"
+	                                ),
+	                                _react2.default.createElement(
+	                                    "label",
+	                                    { className: "checkbox pull-left" },
+	                                    _react2.default.createElement(
+	                                        "input",
+	                                        { type: "checkbox", value: "remember-me" },
+	                                        "Remember me"
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    "a",
+	                                    { href: "#", className: "pull-right need-help" },
+	                                    "Need help? "
+	                                ),
+	                                _react2.default.createElement("span", { className: "clearfix" })
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
 
-	  return InstrLogin;
+	        // Allow page rendering with actions
+
+	    }]);
+
+	    return InstrLogin;
 	}(_react.Component);
 
 	InstrLogin.contextTypes = {
-	  router: _react.PropTypes.object
+	    router: _react.PropTypes.object
 	};
 	;
 
@@ -37740,6 +37782,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -37779,35 +37823,64 @@
 	    value: function render() {
 	      var _this2 = this;
 
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Student Login'
-	        ),
+	      return (
+	        /*    <div>
+	              <h1>Student Login</h1>
+	               <div>
+	                <input type="text" value={this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID"></input>
+	              </div>
+	               <div>
+	                <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
+	                <button className="" onClick={() => {this.context.router.push('/student/evaluation')}}>Login</button>
+	              </div>
+	             </div>  --> */
+
 	        _react2.default.createElement(
 	          'div',
-	          null,
-	          _react2.default.createElement('input', { type: 'text', value: this.state.studentId, onChange: this.updateStudentId.bind(this), placeholder: 'Student ID' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
+	          { className: 'container' },
 	          _react2.default.createElement(
-	            'button',
-	            { className: '', onClick: function onClick() {
-	                _this2.context.router.push('/');
-	              } },
-	            'Back'
-	          ),
-	          _react2.default.createElement(
-	            'button',
-	            { className: '', onClick: function onClick() {
-	                _this2.context.router.push('/student/evaluation');
-	              } },
-	            'Login'
+	            'div',
+	            { className: 'row' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'col-sm-6 col-md-4 col-md-offset-4' },
+	              _react2.default.createElement(
+	                'h1',
+	                { className: 'text-center login-title' },
+	                'Student Login'
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'account-wall' },
+	                _react2.default.createElement('img', { className: 'profile-img', src: '/img/student-icon.png',
+	                  alt: '' }),
+	                _react2.default.createElement(
+	                  'form',
+	                  { className: 'form-signin' },
+	                  _react2.default.createElement('input', _defineProperty({ type: 'text', className: 'form-control', placeholder: 'Student ID', value: this.state.studentId, onChange: this.updateStudentId.bind(this) }, 'placeholder', 'Student ID')),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { className: 'myButton btn btn-primary btn-block', onClick: function onClick() {
+	                        _this2.context.router.push('/student/evaluation');
+	                      } },
+	                    'LogIn'
+	                  ),
+	                  _react2.default.createElement(
+	                    'button',
+	                    { className: 'myButton btn btn-primary btn-block', onClick: function onClick() {
+	                        _this2.context.router.push('/');
+	                      } },
+	                    'Back'
+	                  ),
+	                  _react2.default.createElement(
+	                    'a',
+	                    { href: '#', className: 'pull-right need-help' },
+	                    'Need help? '
+	                  ),
+	                  _react2.default.createElement('span', { className: 'clearfix' })
+	                )
+	              )
+	            )
 	          )
 	        )
 	      );

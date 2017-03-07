@@ -12,7 +12,7 @@ class Home extends Component {
         <div className = "">
         <div className="container">
 
-          <div class="span4"><img className="center-block" src="/img/UCSD.png" /></div>
+          <div><img className="center-block" src="/img/UCSD.png" /></div>
           <h2>Welcome to Peer Review.</h2>
           <p> "need a tag line here team" </p>
           <hr className = "style1"/>

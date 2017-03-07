@@ -26,9 +26,8 @@ class StudLogin extends Component {
   };
 
   render() {
-
-    return (
-      <div>
+   return (
+  /*    <div>
         <h1>Student Login</h1>
 
         <div>
@@ -40,7 +39,36 @@ class StudLogin extends Component {
           <button className="" onClick={() => {this.context.router.push('/student/evaluation')}}>Login</button>
         </div>
 
-      </div>
+      </div>  --> */
+
+
+        <div className="container">
+            <div className="row">
+                <div className="col-sm-6 col-md-4 col-md-offset-4">
+                    <h1 className="text-center login-title">Student Login</h1>
+                    <div className="account-wall">
+                        <img className="profile-img" src="/img/student-icon.png"
+                            alt="" />
+                        <form className="form-signin">
+                        <input type="text" className="form-control" placeholder="Student ID" value={
+                                    this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID">
+                                    
+                        </input>
+                          <button className="myButton btn btn-primary btn-block" onClick={() => {
+                            this.context.router.push('/student/evaluation')}}>LogIn
+                          </button>
+                          <button className="myButton btn btn-primary btn-block" onClick={() => {
+                            this.context.router.push('/')}}>Back
+                          </button>
+                        <a href="#" className="pull-right need-help">Need help? </a><span className="clearfix"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     )
   };
 };
