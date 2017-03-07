@@ -1,5 +1,6 @@
 var express = require('express');
 var firebase = require("firebase");
+var bodyParser = require('body-parser');
 
 // Create express app
 var app = express();
@@ -13,6 +14,8 @@ app.use(function(req, res, next) {
     next();
   }
 });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Initialize Firebase
 var config = {
@@ -35,6 +38,42 @@ app.listen(PORT, function () {
 /* REST APIS */
 app.get("/loggedin", function(req, res) {
   res.send(true);
+})
+
+app.post("/createAccount", function(req, res){
+  console.log(req.body.email);
+  console.log(req.body.password);
+  firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password)
+  .then(function(user){
+    console.log("we here");
+    res.send(true);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    res.send(errorMessage);
+    // ...
+  });
+})
+
+app.post("/signIn", function(req, res){
+  console.log(req.body.email);
+  console.log(req.body.password);
+  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password)
+  .then(function(user){
+    console.log("we here");
+    res.send(true);
+  })
+  .catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    console.log(errorMessage);
+    res.send(errorMessage);
+    // ...
+  });
 })
 
 /*app.post("/firebasePostTest", function(req, res){

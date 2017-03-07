@@ -10,7 +10,9 @@ import * as conf from 'configureStore';
 
 
 // Init custom store configuration
-var store = conf.configure();
+//var store = conf.configure();
+import store from './store/configureStore.js';
+
 
 // Render provider and routes to DOM
 ReactDOM.render(
