@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Control, Form, actions } from 'react-redux-form';
+import { reduxForm } from 'redux-form';
 
 class StudLogin extends Component {
 
@@ -12,52 +12,49 @@ class StudLogin extends Component {
 		// Super the parent constructor
 		super(props);
 
-    /*this.state = {
+    this.state = {
       studentId: ''
-    };*/
+    };
 
 	};
 
-  handleSubmit(user) {
-    const { dispatch } = this.props;
-    console.log(user);
-
-    // Do whatever you like in here.
-    // You can use actions such as:
-    // dispatch(actions.submit('user', somePromise));
-    // etc.
-  }
-
-  /*updateStudentId(id) {
+  updateStudentId(id) {
     this.setState({
       studentId: id.target.value
     });
     console.log(id.target.value);
-  };*/
+  };
 
   render() {
+   return (
 
-    return (
-      <div>
-        <h1>Student Login</h1>
-
-        <div>
-          <Form model="user" onSubmit={(user) => this.handleSubmit(user)}>
-            <label>PID:</label>
-            <Control.text model="user.pid" />
-
-            <button type="submit">
-              Login!
-            </button>
-          </Form>
+        <div className="container">
+            <div className="row">
+                <div className="col-sm-6 col-md-4 col-md-offset-4">
+                    <h1 className="text-center login-title">Student Login</h1>
+                    <div className="account-wall">
+                        <img className="profile-img" src="/img/student-icon.png"
+                            alt="" />
+                        <form className="form-signin">
+                        <input type="text" className="form-control" placeholder="Student ID" value={
+                                    this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID">
+                                    
+                        </input>
+                          <button className="myButton btn btn-primary btn-block" onClick={() => {
+                            this.context.router.push('/student/evaluation')}}>LogIn
+                          </button>
+                          <button className="myButton btn btn-primary btn-block" onClick={() => {
+                            this.context.router.push('/')}}>Back
+                          </button>
+                        <a href="#" className="pull-right need-help">Need help? </a><span className="clearfix"></span>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div>
-          <button className="" onClick={() => {this.context.router.push('/')}}>Back</button>
-          <button className="" onClick={() => {this.context.router.push('/student/evaluation')}}>Login</button>
-        </div>
 
-      </div>
+
     )
   };
 };
