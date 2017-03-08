@@ -41,7 +41,7 @@ class StudLogin extends Component {
                                     
                         </input>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('/student/evaluation')}}>LogIn
+                            this.context.router.push('/student/teammate')}}>LogIn
                           </button>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
                             this.context.router.push('/')}}>Back
