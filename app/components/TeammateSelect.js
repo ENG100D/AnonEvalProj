@@ -20,26 +20,36 @@ class ClassSelect extends Component {
   render() {
     return (
     	
-      <div style={divCenter} >
-        <div>
-          <center>
-            <h1>Peer Select</h1>
-          </center>
-        </div>
-      
-     
-      <div className="dropdown dropdown-center" >
-      <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Peer
-      <span className="caret"></span></button>
-      <ul className="dropdown-menu dropdown-menu-center">
-      
-        <li><a href="">XYZ</a></li>
-        <li><a href="">ABC</a></li>
-        <li><a href="">LMAO</a></li>
+      <div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="pull-right">
+            <button className="myButton">Reviews</button>
+            </div>
+          </div>
+        </div>  
         
-      </ul>
+        <div style={divCenter}>
+          <div>
+            <center>
+              <h1>Peer Select</h1>
+            </center>
+          </div>
+      
+    
+        <div className="dropdown dropdown-center" >
+        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Peer
+        <span className="caret"></span></button>
+        <ul className="dropdown-menu dropdown-menu-center">
+      
+        <li><a >XYZ</a></li>
+        <li><a >ABC</a></li>
+        <li><a >LMAO</a></li>
+        
+        </ul>
 		  </div>
      </div>
+    </div>
     
     );
   };

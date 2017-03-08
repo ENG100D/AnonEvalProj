@@ -32,15 +32,15 @@ class ClassSelect extends Component {
           <span className="caret"></span></button>
           <ul className="dropdown-menu dropdown-menu-center">
 
-            <li><a href="">XYZ</a></li>
-            <li><a href="">ABC</a></li>
-            <li><a href="">LMAO</a></li>
+            <li><a onClick={() => {this.context.router.push('instructor/team')}}>XYZ</a></li>
+            <li><a >ABC</a></li>
+            <li><a >LMAO</a></li>
 
           </ul>
 
           </div>
-        </div>    
-        <button className="myButton" onClick={() => {this.context.router.push('instructor/team')}}>Continue</button><br/>
+        </div> 
+            
       </div>
     );
   };
