@@ -12,8 +12,8 @@ class Home extends Component {
         <div className = "">
         <div className="container">
 
-          <div><img className="center-block" src="/img/UCSD.png" /></div>
-          <h2>Welcome to Peer Review.</h2>
+          <div><img className="center-block ucsd-img" src="/img/UCSD.png" /></div>
+          <h1 id = "welcome-msg">Welcome to Peer Review.</h1>
           <p> "need a tag line here team" </p>
           <hr className = "style1"/>
       				  <button className="myButton" onClick={() => {

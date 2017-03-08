@@ -20,10 +20,10 @@ class InstrLogin extends Component {
                         <input type="text" className="form-control" placeholder="Username" />
                         <input type="password" className="form-control" placeholder="Password" />
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('instructor/login')}}>Sign In
+                            this.context.router.push('instructor/login')}}>LogIn
                           </button>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('/')}}>Cancel
+                            this.context.router.push('/')}}>Back
                           </button>
                         <label className="checkbox pull-left">
                             <input type="checkbox" value="remember-me">

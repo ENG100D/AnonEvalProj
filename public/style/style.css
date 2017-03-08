@@ -9,6 +9,15 @@ textarea {
 	border-top: 1px solid #8c8b8b;
 }
 
+#welcome-msg {
+	font-family: 'Cochin';
+	font-size: 48px;
+}
+
+.home-bg-img {
+	background: url("../img/form-img.png");
+
+}
 .myButton {
 	position: relative;
 	display: inline-block;
@@ -120,6 +129,19 @@ textarea {
     -webkit-border-radius: 50%;
     border-radius: 50%;
 }
+
+.ucsd-img
+{
+	opacity: 0.7;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
 .need-help
 {
     margin-top: 10px;

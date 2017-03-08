@@ -37494,11 +37494,11 @@
 	          _react2.default.createElement(
 	            "div",
 	            null,
-	            _react2.default.createElement("img", { className: "center-block", src: "/img/UCSD.png" })
+	            _react2.default.createElement("img", { className: "center-block ucsd-img", src: "/img/UCSD.png" })
 	          ),
 	          _react2.default.createElement(
-	            "h2",
-	            null,
+	            "h1",
+	            { id: "welcome-msg" },
 	            "Welcome to Peer Review."
 	          ),
 	          _react2.default.createElement(
@@ -37661,14 +37661,14 @@
 	                                    { className: "myButton btn btn-primary btn-block", onClick: function onClick() {
 	                                            _this2.context.router.push('instructor/login');
 	                                        } },
-	                                    "Sign In"
+	                                    "LogIn"
 	                                ),
 	                                _react2.default.createElement(
 	                                    "button",
 	                                    { className: "myButton btn btn-primary btn-block", onClick: function onClick() {
 	                                            _this2.context.router.push('/');
 	                                        } },
-	                                    "Cancel"
+	                                    "Back"
 	                                ),
 	                                _react2.default.createElement(
 	                                    "label",
