@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import TextField from 'TextField'
 import RadioOption from 'RadioOption';
-;
 
 class EvalForm extends Component {
 
@@ -10,23 +9,24 @@ class EvalForm extends Component {
     super(props);
 
     this.state = {
-      goalRadio: '',
-      perfRadio: ''
 
     };
   };
 
+  handleSubmit(val) {
+    console.log("Hello");
+  };
+
 
   render() {
-    const { handleSubmit } = this.props;
     return (
-      <div>
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <h1>Student Evaluation Form</h1>
 
         <div>
           <label>Goals are clear, understood, and have the full commitment of team members.</label>
           <br></br>
-          <RadioOption />
+          <RadioOption id="1"/>
         </div>
 
         <br></br>
@@ -133,11 +133,11 @@ class EvalForm extends Component {
           <TextField />
         </div>
 
-
-      </div>
+        <button type="submit">Submit</button>
+      </form>
     );
-  }
-}
+  };
+};
 
 // Decorate the form component
 EvalForm = reduxForm({
