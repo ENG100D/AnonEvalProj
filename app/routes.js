@@ -27,5 +27,6 @@ export default (
     <Route path="student/login" component={StudLogin} />
     <Route path="student/teammate" component={TeammateSelect} />
     <Route path="instructor/team" component={TeamSelect} />
+    <Route path="instructor/class" component={ClassSelect} />
   </Route>
 );

@@ -12,7 +12,7 @@ const divCenter={width: "400px",
     };
 
 
-class ClassSelect extends Component {
+class TeamSelect extends Component {
    // Allow page rendering with actions
   static contextTypes = {
     router: PropTypes.object
@@ -47,4 +47,4 @@ class ClassSelect extends Component {
   };
 };
 
-export default ClassSelect;
+export default TeamSelect;
