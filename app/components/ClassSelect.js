@@ -19,30 +19,29 @@ class ClassSelect extends Component {
   };
   render() {
     return (
-    <div>	
-      <div style={divCenter}>
-      <div>
-       <center>
-        <h1>Class Select</h1>
-        </center>
+      <div>	
+        <div style={divCenter}>
+          <div>
+            <center>
+              <h1>Class Select</h1>
+            </center>
+          </div>
+
+          <div className="dropdown dropdown-center" >
+          <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Class
+          <span className="caret"></span></button>
+          <ul className="dropdown-menu dropdown-menu-center">
+
+            <li><a href="">XYZ</a></li>
+            <li><a href="">ABC</a></li>
+            <li><a href="">LMAO</a></li>
+
+          </ul>
+
+          </div>
+        </div>    
+        <button className="myButton" onClick={() => {this.context.router.push('instructor/team')}}>Continue</button><br/>
       </div>
-      
-     
-      <div className="dropdown dropdown-center" >
-      <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Class
-      <span className="caret"></span></button>
-      <ul className="dropdown-menu dropdown-menu-center">
-      
-        <li><a href="">XYZ</a></li>
-        <li><a href="">ABC</a></li>
-        <li><a href="">LMAO</a></li>
-        
-      </ul>
-		  
-		</div>
-     </div>
-     <button className="myButton" onClick={() => {this.context.router.push('instructor/team')}}>Continue</button><br/>
-     </div>
     );
   };
 };

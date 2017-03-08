@@ -21,25 +21,25 @@ class TeamSelect extends Component {
     return (
     
       <div style={divCenter}>
-      <div>
-       <center>
-        <h1>Team Select</h1>
-        </center>
-      </div>
+        <div>
+          <center>
+            <h1>Team Select</h1>
+          </center>
+        </div>
       
      
-      <div className="dropdown dropdown-center" >
-      <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Team
-      <span className="caret"></span></button>
-      <ul className="dropdown-menu dropdown-menu-center">
+        <div className="dropdown dropdown-center" >
+        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Team
+        <span className="caret"></span></button>
+        <ul className="dropdown-menu dropdown-menu-center">
       
-        <li><a href="">XYZ</a></li>
-        <li><a href="">ABC</a></li>
-        <li><a href="">LMAO</a></li>
+          <li><a href="">XYZ</a></li>
+          <li><a href="">ABC</a></li>
+          <li><a href="">LMAO</a></li>
         
-      </ul>
+        </ul>
+        </div>
       </div>
-     </div>
      
     );
   };

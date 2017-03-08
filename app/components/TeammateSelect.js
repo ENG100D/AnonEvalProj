@@ -21,11 +21,11 @@ class ClassSelect extends Component {
     return (
     	
       <div style={divCenter} >
-      <div>
-      <center>
-        <h1>Peer Select</h1>
-        </center>
-      </div>
+        <div>
+          <center>
+            <h1>Peer Select</h1>
+          </center>
+        </div>
       
      
       <div className="dropdown dropdown-center" >
@@ -38,7 +38,7 @@ class ClassSelect extends Component {
         <li><a href="">LMAO</a></li>
         
       </ul>
-			</div>
+		  </div>
      </div>
     
     );
