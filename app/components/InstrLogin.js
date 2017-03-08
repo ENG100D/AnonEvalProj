@@ -20,7 +20,7 @@ class InstrLogin extends Component {
                         <input type="text" className="form-control" placeholder="Username" />
                         <input type="password" className="form-control" placeholder="Password" />
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('instructor/login')}}>LogIn
+                            this.context.router.push('instructor/class')}}>LogIn
                           </button>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
                             this.context.router.push('/')}}>Back
