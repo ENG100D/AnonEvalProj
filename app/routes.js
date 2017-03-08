@@ -12,6 +12,7 @@ import Main from 'Main';
 import StudLogin from 'StudLogin';
 import TeammateSelect from 'TeammateSelect';
 
+import TeamSelect from 'TeamSelect'
 import ExampleForm from 'ExampleForm';
 import ExampleParent from 'ExampleParent';
 
@@ -25,5 +26,6 @@ export default (
     <Route path="instructor/login" component={InstrLogin} />
     <Route path="student/login" component={StudLogin} />
     <Route path="student/teammate" component={TeammateSelect} />
+    <Route path="instructor/team" component={TeamSelect} />
   </Route>
 );
