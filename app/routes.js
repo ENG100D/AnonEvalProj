@@ -22,7 +22,7 @@ export default (
     <IndexRoute component={Home} />
     <Route path="classes" component={ClassSelect} />
     <Route path="student/evaluation" component={ExampleParent} />
-    <Route path="instrucor/dashboard" component={InstrDash} />
+    <Route path="instructor/dashboard" component={InstrDash} />
     <Route path="instructor/login" component={InstrLogin} />
     <Route path="student/login" component={StudLogin} />
     <Route path="student/teammate" component={TeammateSelect} />
