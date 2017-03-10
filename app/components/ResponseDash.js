@@ -18,7 +18,7 @@ class ResponseDash extends Component {
                             alt="" />
                         <form className="form-signin">
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('/')}}>Review 1
+                            this.context.router.push('student/ResponseReview')}}>Review 1
                           </button>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
                             this.context.router.push('/')}}>Review 2

@@ -16,6 +16,8 @@ import TeamSelect from 'TeamSelect'
 import ExampleForm from 'ExampleForm';
 import ExampleParent from 'ExampleParent';
 
+import ResponseReview from 'ResponseReview';
+import ResponseDash from 'ResponseDash';
 
 export default (
   <Route path="/" component={Main}>
@@ -28,5 +30,8 @@ export default (
     <Route path="student/teammate" component={TeammateSelect} />
     <Route path="instructor/team" component={TeamSelect} />
     <Route path="instructor/class" component={ClassSelect} />
+    <Route path="student/ResponseDash" component={ResponseDash} />
+    <Route path="student/ResponseReview" component={ResponseReview} />
+
   </Route>
 );

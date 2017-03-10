@@ -19,13 +19,13 @@ class ClassSelect extends Component {
   };
   render() {
     return (
-    	
+    	 
       <div>
         <div className="container-fluid">
           <div className="row">
             <div className="pull-right">
             <button className="myButton" onClick={() => {
-                  this.context.router.push('instructor/login')}}>Reviews</button>
+                  this.context.router.push('student/ResponseDash')}}>Reviews</button>
             </div>
           </div>
         </div>  

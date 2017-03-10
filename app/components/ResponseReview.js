@@ -21,7 +21,7 @@ class ResponseReview extends Component {
                                                     -> HardWorking <br/> -> Punctual <br/>
                                                     -> Active <br/> -> Communicates Properly <br/></output>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('/')}}>Back
+                            this.context.router.push('student/ResponseDash')}}>Back
                           </button>
                         </form>
                     </div>
