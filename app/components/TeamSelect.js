@@ -33,7 +33,7 @@ class TeamSelect extends Component {
         <span className="caret"></span></button>
         <ul className="dropdown-menu dropdown-menu-center">
       
-          <li><a href="">XYZ</a></li>
+          <li><a onClick={() => {this.context.router.push('instructor/dashboard')}}>XYZ</a></li>
           <li><a href="">ABC</a></li>
           <li><a href="">LMAO</a></li>
         
