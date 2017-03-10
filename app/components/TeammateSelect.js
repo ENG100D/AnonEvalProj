@@ -24,7 +24,8 @@ class ClassSelect extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="pull-right">
-            <button className="myButton">Reviews</button>
+            <button className="myButton" onClick={() => {
+                  this.context.router.push('instructor/login')}}>Reviews</button>
             </div>
           </div>
         </div>  
