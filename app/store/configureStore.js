@@ -4,11 +4,7 @@ import reduxPromise from 'redux-promise';
 
 import { reducer as formReducer } from 'redux-form';
 
-import { initialUserState } from 'reducers';
-
 export function configure() {
-
-
 
   // Combine all custom reducers
   var reducer = redux.combineReducers({
