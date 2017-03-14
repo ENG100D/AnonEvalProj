@@ -3,17 +3,9 @@ import axios from 'axios';
 import * as qs from 'qs';
 
 /* Return Type Keyword Constants */
-export const LOGIN = 'LOGIN';
+export const GETCLASSES = 'GETCLASSES';
+export const GETTEAMS = 'GETTEAMS';
+export const GETSTUDENTINTEAM = 'GETSTUDENTINTEAM';
+export const GETSTUDENT = 'GETSTUDENT';
 
 /* Root URL for API calls */
-
-/* Action to authenticate the user */
-// export function login(props) {
-//
-// 	const request = axios.post(`${ROOT_URL}login/`, qs.stringify(props) );
-//
-// 	return {
-// 		type: LOGIN,
-// 		payload: request
-// 	};
-// };

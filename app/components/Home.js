@@ -9,7 +9,6 @@ class Home extends Component {
 
   render() {
     return (
-        <div className = "">
         <div className="container">
 
           <div><img className="center-block ucsd-img" src="/img/UCSD.png" /></div>
@@ -20,9 +19,8 @@ class Home extends Component {
                   this.context.router.push('instructor/login')}}>Instructor
                 </button>
       				  <button className="myButton" onClick={() => {
-                  this.context.router.push('student/login')}}>Student 
+                  this.context.router.push('student/login')}}>Student
                 </button>
-        </div>
         </div>
     )
   };

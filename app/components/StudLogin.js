@@ -38,7 +38,7 @@ class StudLogin extends Component {
                         <form className="form-signin">
                         <input type="text" className="form-control" placeholder="Student ID" value={
                                     this.state.studentId} onChange={this.updateStudentId.bind(this)} placeholder="Student ID">
-                                    
+
                         </input>
                           <button className="myButton btn btn-primary btn-block" onClick={() => {
                             this.context.router.push('/student/teammate')}}>LogIn
@@ -52,8 +52,6 @@ class StudLogin extends Component {
                 </div>
             </div>
         </div>
-
-
 
     )
   };
