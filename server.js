@@ -85,9 +85,9 @@ app.get("/getInstructorData", function(req, res){
 
 // function to return team members
 // Expects teamNumber and classNumber as query parameter
-app.get("/getTeamData", function(req, res){
-  var teamNumber = req.query.teamNumber;
-  var classNumber = req.query.classNumber;
+app.post("/getTeamData", function(req, res){
+  var teamNumber = req.body.teamNumber;
+  var classNumber = req.body.classNumber;
   console.log(teamNumber);
   console.log(classNumber);
   var ref = db.ref("instructor/"+classNumber+"/"+teamNumber);
@@ -111,8 +111,8 @@ app.get("/getListOfClasses", function(req, res){
 
 // function to return an array of teams in classes
 // expects classNumber as query parameter
-app.get("/getListOfTeams", function(req, res){
-  var classNumber = req.query.classNumber;
+app.post("/getListOfTeams", function(req, res){
+  var classNumber = req.body.classNumber;
   var ref = db.ref("instructor/"+classNumber);
   var retObj = [];
   ref.once("value").then(function(snapshot){

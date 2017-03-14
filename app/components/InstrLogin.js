@@ -22,6 +22,8 @@ class InstrLogin extends React.Component {
       .then((response) => {
       if(response.payload.data == true) {
         this.context.router.push('instructor/class/');
+      } else {
+        alert("Incorrect password, please try again");
       }
     });
   };

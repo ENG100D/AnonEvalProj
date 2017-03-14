@@ -1,26 +1,42 @@
 import React, { Component, PropTypes } from 'react';
+import { getClasses, getTeams } from 'actions';
+import { connect } from 'react-redux';
 
-const divCenter={width: "400px",
-    height: "200px",
-    position: "relative",
-    position:"absolute",
-    top:"0",
-    bottom:"0",
-    left: "0",
-    right: "0",
-    margin:"auto"
-    };
-
-
+@connect((store) => {
+	return {
+		classes: store.globalReducer.classes
+	}
+})
 class ClassSelect extends Component {
 	 // Allow page rendering with actions
   static contextTypes = {
     router: PropTypes.object
   };
+
+  componentWillMount() {
+    this.props.getClasses();
+  }
+
   render() {
+
+    var {classes} = this.props;
+
+    var classItems = classes.map((classItem) => {
+        return(
+          <li
+            key={classItem}
+            onClick={() => {
+              this.props.getTeams({classItem});
+              this.context.router.push('/instructor/team/');
+            }}
+            >{classItem}</li>
+        )
+    });
+
+
     return (
-      <div>	
-        <div style={divCenter}>
+      <div>
+        <div className="divCenter">
           <div>
             <center>
               <h1>Class Select</h1>
@@ -31,19 +47,15 @@ class ClassSelect extends Component {
           <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Class
           <span className="caret"></span></button>
           <ul className="dropdown-menu dropdown-menu-center">
-
-            <li><a onClick={() => {this.context.router.push('instructor/team')}}>XYZ</a></li>
-            <li><a >ABC</a></li>
-            <li><a >LMAO</a></li>
-
+            {classItems}
           </ul>
 
           </div>
-        </div> 
-            
+        </div>
+
       </div>
     );
   };
 };
 
-export default ClassSelect;
+export default connect(null, {getClasses, getTeams})(ClassSelect);

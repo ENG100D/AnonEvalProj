@@ -3,12 +3,14 @@ import * as redux from 'redux';
 import reduxPromise from 'redux-promise';
 
 import { reducer as formReducer } from 'redux-form';
+import { globalReducer } from 'reducers';
 
 export function configure() {
 
   // Combine all custom reducers
   var reducer = redux.combineReducers({
-    form: formReducer
+    form: formReducer,
+    globalReducer: globalReducer
   });
 
   // Create store with reducers, middleware and chrome dev tool extension
