@@ -1,43 +1,47 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { instrLogin } from 'actions';
 
-class InstrLogin extends Component {
+import InstrLoginForm from 'InstrLoginForm';
+
+class InstrLogin extends React.Component {
+  constructor(props) {
+		// Super the parent constructor
+		super(props);
+	};
 
   // Allow page rendering with actions
   static contextTypes = {
     router: PropTypes.object
   };
 
+  handleSubmit(values) {
+    // Do something with the form values
+
+    this.props.instrLogin(values)
+      .then((response) => {
+      if(response.payload.data == true) {
+        this.context.router.push('instructor/class/');
+      }
+    });
+  };
+
   render() {
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-6 col-md-4 col-md-offset-4">
-                    <h1 className="text-center login-title">Instructor Login</h1>
-                    <div className="account-wall">
-                        <img className="profile-img" src="/img/teacher-icon.png"
-                            alt="" />
-                        <form className="form-signin">
-                        <input type="text" className="form-control" placeholder="Username" />
-                        <input type="password" className="form-control" placeholder="Password" />
-                          <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('instructor/class')}}>LogIn
-                          </button>
-                          <button className="myButton btn btn-primary btn-block" onClick={() => {
-                            this.context.router.push('/')}}>Back
-                          </button>
-                        <label className="checkbox pull-left">
-                            <input type="checkbox" value="remember-me">
-                            Remember me
-                            </input>
-                        </label>
-                        <a href="#" className="pull-right need-help">Need help? </a><span className="clearfix"></span>
-                        </form>
-                    </div>
-                </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 className="text-center login-title">Instructor Login</h1>
+            <div className="account-wall">
+              <img className="profile-img" src="/img/teacher-icon.png" alt="" />
+              <InstrLoginForm onSubmit={this.handleSubmit.bind(this)} />
             </div>
+          </div>
         </div>
+      </div>
+
     );
   };
 };
 
-export default InstrLogin;
+export default connect(null, {instrLogin})(InstrLogin);
