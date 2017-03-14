@@ -37784,7 +37784,9 @@
 	                null,
 	                _react2.default.createElement(
 	                  "a",
-	                  null,
+	                  { onClick: function onClick() {
+	                      _this2.context.router.push('student/forms');
+	                    } },
 	                  "XYZ"
 	                )
 	              ),

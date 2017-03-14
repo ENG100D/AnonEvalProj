@@ -19,7 +19,7 @@ class ClassSelect extends Component {
   };
   render() {
     return (
-    	 
+
       <div>
         <div className="container-fluid">
           <div className="row">
@@ -28,30 +28,30 @@ class ClassSelect extends Component {
                   this.context.router.push('student/ResponseDash')}}>Reviews</button>
             </div>
           </div>
-        </div>  
-        
+        </div>
+
         <div style={divCenter}>
           <div>
             <center>
               <h1>Peer Select</h1>
             </center>
           </div>
-      
-    
+
+
         <div className="dropdown dropdown-center" >
         <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Peer
         <span className="caret"></span></button>
         <ul className="dropdown-menu dropdown-menu-center">
-      
-        <li><a >XYZ</a></li>
+
+        <li><a onClick={()=>{this.context.router.push('student/forms')}}>XYZ</a></li>
         <li><a >ABC</a></li>
         <li><a >LMAO</a></li>
-        
+
         </ul>
 		  </div>
      </div>
     </div>
-    
+
     );
   };
 };
