@@ -73,6 +73,57 @@ app.post("/signIn", function(req, res){
   });
 })
 
+
+//function to pull all of the data from under the instructor
+app.get("/getInstructorData", function(req, res){
+  var ref = db.ref("instructor");
+  ref.once("value").then(function(snapshot){
+    console.log(snapshot.val());
+    res.send(snapshot.val());
+  })
+})
+
+// function to return team members
+// Expects teamNumber and classNumber as query parameter
+app.get("/getTeamData", function(req, res){
+  var teamNumber = req.query.teamNumber;
+  var classNumber = req.query.classNumber;
+  console.log(teamNumber);
+  console.log(classNumber);
+  var ref = db.ref("instructor/"+classNumber+"/"+teamNumber);
+  ref.once("value").then(function(snapshot){
+    res.send(snapshot.val());
+  })
+})
+
+// function to return an array of classes
+app.get("/getListOfClasses", function(req, res){
+  var ref = db.ref("instructor/");
+  var retObj = [];
+  ref.once("value").then(function(snapshot){
+    var obj = snapshot.val();
+    Object.keys(obj).forEach(function(k) {
+      retObj.push(k);
+    });
+    res.json(retObj);
+  })
+})
+
+// function to return an array of teams in classes
+// expects classNumber as query parameter
+app.get("/getListOfTeams", function(req, res){
+  var classNumber = req.query.classNumber;
+  var ref = db.ref("instructor/"+classNumber);
+  var retObj = [];
+  ref.once("value").then(function(snapshot){
+    var obj = snapshot.val();
+    Object.keys(obj).forEach(function(k) {
+      retObj.push(k);
+    });
+    res.json(retObj);
+  })
+})
+
 /* Gscripts begin */
 
 // ID of the script to call. Acquire this from the Apps Script editor,
