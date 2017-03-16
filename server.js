@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var gapi = require('googleapis');
 var async = require("async");
 
+
 // Create express app
 var app = express();
 // Use the environment's port, 8080 ass the default port
@@ -69,7 +70,7 @@ app.post("/pidSignIN", function(req, res){
       // console.log("what is happening?")
 
       async.series([
-        function(callback){ 
+        function(callback){
           // console.log("help");
           //Use list of classes to get list of teams
           var teamRef = db.ref("instructor/"+c);
@@ -99,7 +100,7 @@ app.post("/pidSignIN", function(req, res){
                   })
                 });
           })
-          
+
         },
         ],
       // optional callback
@@ -111,7 +112,7 @@ app.post("/pidSignIN", function(req, res){
 
       //Use list of classes to get list of teams
       var teamRef = db.ref("instructor/"+c);
-      
+
     });
   })
 })
@@ -186,30 +187,27 @@ app.post("/getListOfTeams", function(req, res){
   })
 })
 
+app.post("/updatePeerReviews", function(req, res) {
+  // var sheetId = req.body.sheet;
+  var sheetId = '15JCZMxFAE8lyKv6Lv_ynnn5OMn_MQjgMDFttwpLXyvE';
+  var url = 'https://script.google.com/macros/s/AKfycbyoijcM0rHfRUMOUP7Nt_HnRFrWGYoKA5xLeSa_O1xLaVFDVfE/exec?sheetId='
+
+
+  axios.get(url+sheetId)
+    .then(function(res){
+        console.log(res.status);
+    });
+
+  return true;
+
+});
+
+
+
 /* Gscripts begin */
 
 // ID of the script to call. Acquire this from the Apps Script editor,
 // under Publish > Deploy as API executable.
-var peerScriptId = "MCoVLgdKHxF0vvl5M5eSP1nXtad7F4Vk4";
-var teamScriptId = "MDjkB8tESLoRX6J3lFrAlA3Xtad7F4Vk4";
-
-// Create execution request.
-var request = {
-    'function': 'writeDataToFirebase()',
-};
-
-// Make the request.
-// var op = gapi.client.request({
-//     'root': 'https://script.googleapis.com',
-//     'path': 'v1/scripts/' + peerScriptId + ':run',
-//     'method': 'GET'
-// });
-
-// Log the results of the request.
-// op.execute(function(resp) {
-//   console.log("RUN");
-//   console.log(resp);
-// });
 
 /* Gscripts end */
 
