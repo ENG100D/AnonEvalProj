@@ -27220,7 +27220,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement('input', { type: 'text', id: 'classId' }),
+	            _react2.default.createElement('input', { type: 'text', id: 'classId', placeholder: 'Enter Spreadsheet ID' }),
 	            _react2.default.createElement(
 	              'button',
 	              { onClick: function onClick() {
@@ -39681,7 +39681,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement('input', { type: 'text', id: 'peer' }),
+	          _react2.default.createElement('input', { type: 'text', id: 'peer', placeholder: 'Enter Spreadsheet Id' }),
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
@@ -39693,7 +39693,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement('input', { type: 'text', id: 'team' }),
+	          _react2.default.createElement('input', { type: 'text', id: 'team', placeholder: 'Enter Spreadsheet ID' }),
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {

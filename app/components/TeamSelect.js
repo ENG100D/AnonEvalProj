@@ -62,18 +62,18 @@ class TeamSelect extends Component {
         </ul>
         </div>
 
-				{/* <div>
-					<input type="text" id="peer" />
+				<div>
+					<input type="text" id="peer" placeholder="Enter Spreadsheet Id"/>
 					<button onClick={() => {
 						this.updatePeerReviews()
 					}}>Update Peer Reviews</button>
 				</div>
 				<div>
-					<input type="text" id="team" />
+					<input type="text" id="team" placeholder="Enter Spreadsheet ID"/>
 					<button onClick={() => {
 						this.updateTeamReviews()
 					}}>Update Team Reviews</button>
-				</div> */}
+				</div>
       </div>
 
     );

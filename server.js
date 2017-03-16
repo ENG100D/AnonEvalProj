@@ -156,29 +156,6 @@ app.post("/getListOfTeams", function(req, res){
   })
 })
 
-app.post("/updatePeerReviews", function(req, res) {
-  // var sheetId = req.body.sheet;
-  var sheetId = '15JCZMxFAE8lyKv6Lv_ynnn5OMn_MQjgMDFttwpLXyvE';
-  var url = 'https://script.google.com/macros/s/AKfycbyoijcM0rHfRUMOUP7Nt_HnRFrWGYoKA5xLeSa_O1xLaVFDVfE/exec?sheetId='
-
-
-  axios.get(url+sheetId)
-    .then(function(res){
-        console.log(res.status);
-    });
-
-  return true;
-
-});
-
-
-
-/* Gscripts begin */
-
-// ID of the script to call. Acquire this from the Apps Script editor,
-// under Publish > Deploy as API executable.
-
-/* Gscripts end */
 
 /*app.post("/firebasePostTest", function(req, res){
   var userId = "a99131327";

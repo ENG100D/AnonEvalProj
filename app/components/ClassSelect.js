@@ -62,12 +62,12 @@ class ClassSelect extends Component {
 
           </div>
 
-					{/* <div>
-						<input type="text" id="classId" />
+					<div>
+						<input type="text" id="classId" placeholder="Enter Spreadsheet ID" />
 						<button onClick={() => {
 							this.importClass()
 						}}>Import New Class</button>
-					</div> */}
+					</div>
 
         </div>
 
