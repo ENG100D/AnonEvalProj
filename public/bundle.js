@@ -39584,6 +39584,24 @@
 	  }
 
 	  _createClass(TeamSelect, [{
+	    key: 'updatePeerReviews',
+	    value: function updatePeerReviews() {
+	      var sheetId = document.getElementById('peer').value;
+	      var url = 'https://script.google.com/macros/s/AKfycbyoijcM0rHfRUMOUP7Nt_HnRFrWGYoKA5xLeSa_O1xLaVFDVfE/exec?sheetId=' + sheetId;
+	      var win = window.open(url, '_blank');
+	      win.focus();
+	    }
+	    // Allow page rendering with actions
+
+	  }, {
+	    key: 'updateTeamReviews',
+	    value: function updateTeamReviews() {
+	      var sheetId = document.getElementById('team').value;
+	      var url = 'https://script.google.com/macros/s/AKfycbxz7K-IBjkAis40f0hQzSNvxfgLDodw5mRN0yVFUdoUg36Xzms/exec?sheetId=' + sheetId;
+	      var win = window.open(url, '_blank');
+	      win.focus();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -39639,11 +39657,33 @@
 	            { className: 'dropdown-menu dropdown-menu-center' },
 	            teamItems
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('input', { type: 'text', id: 'peer' }),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: function onClick() {
+	                _this2.updatePeerReviews();
+	              } },
+	            'Update Peer Reviews'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('input', { type: 'text', id: 'team' }),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: function onClick() {
+	                _this2.updateTeamReviews();
+	              } },
+	            'Update Team Reviews'
+	          )
 	        )
 	      );
 	    }
-	    // Allow page rendering with actions
-
 	  }]);
 
 	  return TeamSelect;
