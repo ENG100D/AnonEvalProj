@@ -62,7 +62,7 @@ class TeamSelect extends Component {
         </ul>
         </div>
 
-				<div>
+				{/* <div>
 					<input type="text" id="peer" />
 					<button onClick={() => {
 						this.updatePeerReviews()
@@ -73,7 +73,7 @@ class TeamSelect extends Component {
 					<button onClick={() => {
 						this.updateTeamReviews()
 					}}>Update Team Reviews</button>
-				</div>
+				</div> */}
       </div>
 
     );
