@@ -151,6 +151,61 @@ app.get("/getListOfClasses", function(req, res){
   })
 })
 
+//function where given an API an overall average from peer reviews is returned
+//Expects PID
+app.post("/cumulativeAverage", function(req, res){
+  var pid = req.body.pid;
+  var ref = db.ref("instructor/");
+  console.log(getClass(pid));
+  res.send(true);
+  /*var retObj = [];
+  ref.once("value").then(function(snapshot){
+    var obj = snapshot.val();
+    Object.keys(obj).forEach(function(k) {
+      retObj.push(k);
+    });
+    res.json(retObj);
+  })*/
+})
+
+function getClass(pid)
+{
+  var classRef = db.ref("instructor/");
+  //Get a list of classes
+  classRef.once("value").then(function(snapshot){
+    console.log("in")
+    var obj = snapshot.val();
+    Object.keys(obj).forEach(function(c) {
+
+      //Use list of classes to get list of teams
+      var teamRef = db.ref("instructor/"+c);
+      teamRef.once("value").then(function(snapshot){
+        var obj = snapshot.val();
+        Object.keys(obj).forEach(function(t) {
+
+          //Use list of teams to get list of students
+          var pidRef = db.ref("instructor/"+c+"/"+t);
+          pidRef.once("value").then(function(snapshot){
+            var obj = snapshot.val();
+
+            //Loop over list of students and check pids
+            Object.keys(obj).forEach(function(p){
+              if(p == pid)
+              {
+                console.log("we here");
+                console.log([c,t]);
+                return [c, t];
+              }
+            });
+          })
+        });
+      })
+    });
+    console.log("classRef");
+  })
+  console.log("getClass");
+}
+
 // function to return an array of teams in classes
 // expects classNumber as query parameter
 app.post("/getListOfTeams", function(req, res){
