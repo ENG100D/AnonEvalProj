@@ -27258,6 +27258,36 @@
 	                )
 	              )
 	            )
+<<<<<<< HEAD
+=======
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'dropdown dropdown-center' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'btn btn-primary dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
+	              'Choose Class',
+	              _react2.default.createElement('span', { className: 'caret' })
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              { className: 'dropdown-menu dropdown-menu-center' },
+	              classItems
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement('input', { type: 'text', id: 'classId', placeholder: 'Enter Spreadsheet ID' }),
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  _this2.importClass();
+	                } },
+	              'Import New Class'
+	            )
+>>>>>>> 679fe9d9fb564c3642e4a49e0079c7a7d9ed571d
 	          )
 	        )
 	      );
@@ -39711,7 +39741,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement('input', { type: 'text', id: 'peer' }),
+	          _react2.default.createElement('input', { type: 'text', id: 'peer', placeholder: 'Enter Spreadsheet Id' }),
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {
@@ -39723,7 +39753,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement('input', { type: 'text', id: 'team' }),
+	          _react2.default.createElement('input', { type: 'text', id: 'team', placeholder: 'Enter Spreadsheet ID' }),
 	          _react2.default.createElement(
 	            'button',
 	            { onClick: function onClick() {

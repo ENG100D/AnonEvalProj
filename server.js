@@ -59,62 +59,31 @@ app.post("/createAccount", function(req, res){
 
 //PID sign in for students
 app.post("/pidSignIN", function(req, res){
+
   console.log(req.body.pid);
-  var classRef = db.ref("instructor/");
+  var studentRef = db.ref("students/");
   var found = false;
-  //Get a list of classes
-  classRef.once("value").then(function(snapshot){
+
+  //Use list of teams to get list of students
+          
+  studentRef.once("value").then(function(snapshot){
     var obj = snapshot.val();
-    Object.keys(obj).forEach(function(c) {
 
-      // console.log("what is happening?")
+    //Loop over list of students and check pids
+    Object.keys(obj).forEach(function(pid){
+      console.log("current pid: " + pid);
+      console.log("pid needed: " + req.body.pid);
+      console.log((pid == req.body.pid))
+      if(pid == req.body.pid)
+      {
+        found = true;
 
-      async.series([
-        function(callback){
-          // console.log("help");
-          //Use list of classes to get list of teams
-          var teamRef = db.ref("instructor/"+c);
-          teamRef.once("value").then(function(snapshot){
-             var obj = snapshot.val();
-             // console.log(obj);
-            Object.keys(obj).forEach(function(t) {
-
-
-                  //Use list of teams to get list of students
-                  var pidRef = db.ref("instructor/"+c+"/"+t);
-                  pidRef.once("value").then(function(snapshot){
-                    var obj = snapshot.val();
-
-                    //Loop over list of students and check pids
-                    Object.keys(obj).forEach(function(pid){
-                      console.log("current pid: " + pid);
-                      console.log("pid needed: " + req.body.pid);
-                      console.log((pid == req.body.pid))
-                      if(pid == req.body.pid)
-                      {
-                        found = true;
-                      }
-
-                    });
-                    callback(null);
-                  })
-                });
-          })
-
-        },
-        ],
-      // optional callback
-      function(err, results){
-          // results is now equal to ['one', 'two']
-          console.log("we here already: " + found);
-          res.send(found);
-        });
-
-      //Use list of classes to get list of teams
-      var teamRef = db.ref("instructor/"+c);
-
+      }
     });
+    res.send(found);
   })
+            
+
 })
 
 //Email and password sign in for professor
@@ -187,29 +156,6 @@ app.post("/getListOfTeams", function(req, res){
   })
 })
 
-app.post("/updatePeerReviews", function(req, res) {
-  // var sheetId = req.body.sheet;
-  var sheetId = '15JCZMxFAE8lyKv6Lv_ynnn5OMn_MQjgMDFttwpLXyvE';
-  var url = 'https://script.google.com/macros/s/AKfycbyoijcM0rHfRUMOUP7Nt_HnRFrWGYoKA5xLeSa_O1xLaVFDVfE/exec?sheetId='
-
-
-  axios.get(url+sheetId)
-    .then(function(res){
-        console.log(res.status);
-    });
-
-  return true;
-
-});
-
-
-
-/* Gscripts begin */
-
-// ID of the script to call. Acquire this from the Apps Script editor,
-// under Publish > Deploy as API executable.
-
-/* Gscripts end */
 
 /*app.post("/firebasePostTest", function(req, res){
   var userId = "a99131327";
