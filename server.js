@@ -2,6 +2,7 @@ var express = require('express');
 var firebase = require("firebase");
 var bodyParser = require('body-parser');
 var gapi = require('googleapis');
+var async = require("async");
 
 // Create express app
 var app = express();
@@ -65,34 +66,53 @@ app.post("/pidSignIN", function(req, res){
     var obj = snapshot.val();
     Object.keys(obj).forEach(function(c) {
 
+      // console.log("what is happening?")
+
+      async.series([
+        function(callback){ 
+          // console.log("help");
+          //Use list of classes to get list of teams
+          var teamRef = db.ref("instructor/"+c);
+          teamRef.once("value").then(function(snapshot){
+             var obj = snapshot.val();
+             // console.log(obj);
+            Object.keys(obj).forEach(function(t) {
+
+
+                  //Use list of teams to get list of students
+                  var pidRef = db.ref("instructor/"+c+"/"+t);
+                  pidRef.once("value").then(function(snapshot){
+                    var obj = snapshot.val();
+
+                    //Loop over list of students and check pids
+                    Object.keys(obj).forEach(function(pid){
+                      console.log("current pid: " + pid);
+                      console.log("pid needed: " + req.body.pid);
+                      console.log((pid == req.body.pid))
+                      if(pid == req.body.pid)
+                      {
+                        found = true;
+                      }
+
+                    });
+                    callback(null);
+                  })
+                });
+          })
+          
+        },
+        ],
+      // optional callback
+      function(err, results){
+          // results is now equal to ['one', 'two']
+          console.log("we here already: " + found);
+          res.send(found);
+        });
+
       //Use list of classes to get list of teams
       var teamRef = db.ref("instructor/"+c);
-      teamRef.once("value").then(function(snapshot){
-        var obj = snapshot.val();
-        Object.keys(obj).forEach(function(t) {
-
-          //Use list of teams to get list of students
-          var pidRef = db.ref("instructor/"+c+"/"+t);
-          pidRef.once("value").then(function(snapshot){
-            var obj = snapshot.val();
-
-            //Loop over list of students and check pids
-            Object.keys(obj).forEach(function(pid){
-              console.log("current pid: " + pid);
-              console.log("pid needed: " + req.body.pid);
-              console.log((pid == req.body.pid))
-              if(pid == req.body.pid)
-              {
-                found = true;
-              }
-            });
-          })
-        });
-      })
+      
     });
-  }).then(function(){
-    console.log("we here already: " + found);
-    res.send(found);
   })
 })
 
