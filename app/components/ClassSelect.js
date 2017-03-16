@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { getClasses, getTeams } from 'actions';
+import { getClasses, getTeams, setCurrClass } from 'actions';
 import { connect } from 'react-redux';
 
 @connect((store) => {
@@ -27,6 +27,7 @@ class ClassSelect extends Component {
             key={classItem}
             onClick={() => {
               this.props.getTeams({classItem});
+              this.props.setCurrClass({classItem});
               this.context.router.push('/instructor/team/');
             }}
             >{classItem}</li>
@@ -58,4 +59,4 @@ class ClassSelect extends Component {
   };
 };
 
-export default connect(null, {getClasses, getTeams})(ClassSelect);
+export default connect(null, {getClasses, getTeams, setCurrClass})(ClassSelect);

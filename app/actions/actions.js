@@ -7,7 +7,8 @@ export const LOGIN = 'LOGIN';
 export const GETCLASSES = 'GETCLASSES';
 export const GETTEAMS = 'GETTEAMS';
 export const GETTEAMDATA = 'GETTEAMDATA';
-export const GETSTUDENT = 'GETSTUDENT';
+export const SETCURRCLASS = 'SETCURRCLASS';
+export const SETCURRTEAM = 'SETCURRTEAM';
 
 
 /* Root URL for API calls */
@@ -43,15 +44,28 @@ export function getTeams(classItem) {
 
 export function getTeamData(classItem, team) {
   var param = {
-    teamNumber: team,
+    teamNumber: team.teamItem,
     classNumber: classItem
   };
-
 
   const request = axios.post('/getTeamData/', qs.stringify(param));
 
   return {
     type: GETTEAMDATA,
     payload: request
+  };
+};
+
+export function setCurrClass(classItem) {
+  return {
+    type: SETCURRCLASS,
+    payload: classItem
+  };
+};
+
+export function setCurrTeam(teamItem) {
+  return {
+    type: SETCURRTEAM,
+    payload: teamItem
   };
 };

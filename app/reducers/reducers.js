@@ -1,12 +1,12 @@
-import { GETCLASSES, GETTEAMS, GETTEAMDATA } from 'actions';
+import { GETCLASSES, GETTEAMS, GETTEAMDATA, SETCURRCLASS, SETCURRTEAM } from 'actions';
 
 // Initial state params
 const INITIAL_STATE = {
 	classes: [],
 	teams: [],
-	currClass: 0,
+	currClass: '',
 	currTeam: 0,
-
+	students: []
 };
 
 export var globalReducer = (state=INITIAL_STATE, action) => {
@@ -21,8 +21,24 @@ export var globalReducer = (state=INITIAL_STATE, action) => {
 			...state,
 			teams: action.payload.data
 		};
+	case SETCURRCLASS:
+		return {
+			...state,
+			currClass: action.payload.classItem
+		};
+	case SETCURRTEAM:
+		return {
+			...state,
+			currTeam: action.payload.teamItem
+		};
+	case GETTEAMDATA:
+		var arr = Object.values(action.payload.data);
+
+		return {
+			...state,
+			students: arr
+		}
 	default:
-		console.log(action);
 		return state;
 	}
 

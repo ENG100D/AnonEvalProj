@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { setCurrTeam, getTeamData } from 'actions';
 
 @connect((store) => {
 	return {
-		teams: store.globalReducer.teams
+		teams: store.globalReducer.teams,
+    currClass: store.globalReducer.currClass
 	}
 })
 class TeamSelect extends Component {
@@ -14,16 +16,18 @@ class TeamSelect extends Component {
 
   render() {
 
-    var {teams} = this.props;
+    var {teams, currClass} = this.props;
 
     var teamItems = teams.map((teamItem) => {
         return(
           <li
             key={teamItem}
             onClick={() => {
+              this.props.setCurrTeam({teamItem});
+              this.props.getTeamData(currClass, {teamItem});
               this.context.router.push('/instructor/dashboard/');
             }}
-            >{teamItem}</li>
+            >Team {teamItem}</li>
         )
     });
 
@@ -41,7 +45,6 @@ class TeamSelect extends Component {
         <span className="caret"></span></button>
         <ul className="dropdown-menu dropdown-menu-center">
           {teamItems}
-
         </ul>
         </div>
       </div>
@@ -50,4 +53,4 @@ class TeamSelect extends Component {
   };
 };
 
-export default connect(null,null)(TeamSelect);
+export default connect(null,{setCurrTeam, getTeamData})(TeamSelect);
