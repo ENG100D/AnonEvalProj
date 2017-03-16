@@ -17,6 +17,15 @@ class ClassSelect extends Component {
     this.props.getClasses();
   }
 
+	importClass() {
+		var sheetId = document.getElementById('classId').value;
+		var url = 'https://script.google.com/macros/s/AKfycbzm2tyXsamWkBurx7JEVttpSQQxKwbviDbter1umXoCz25ZlhIp/exec?sheetId=' + sheetId;
+		var win = window.open(url, '_blank');
+  	win.focus();
+	}
+
+
+
   render() {
 
     var {classes} = this.props;
@@ -52,6 +61,14 @@ class ClassSelect extends Component {
           </ul>
 
           </div>
+
+					<div>
+						<input type="text" id="classId" />
+						<button onClick={() => {
+							this.importClass()
+						}}>Import New Class</button>
+					</div>
+
         </div>
 
       </div>

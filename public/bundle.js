@@ -27153,6 +27153,14 @@
 	    // Allow page rendering with actions
 
 	  }, {
+	    key: 'importClass',
+	    value: function importClass() {
+	      var sheetId = document.getElementById('classId').value;
+	      var url = 'https://script.google.com/macros/s/AKfycbzm2tyXsamWkBurx7JEVttpSQQxKwbviDbter1umXoCz25ZlhIp/exec?sheetId=' + sheetId;
+	      var win = window.open(url, '_blank');
+	      win.focus();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
@@ -27207,6 +27215,18 @@
 	              'ul',
 	              { className: 'dropdown-menu dropdown-menu-center' },
 	              classItems
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            _react2.default.createElement('input', { type: 'text', id: 'classId' }),
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: function onClick() {
+	                  _this2.importClass();
+	                } },
+	              'Import New Class'
 	            )
 	          )
 	        )
