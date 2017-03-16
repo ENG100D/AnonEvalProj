@@ -69,7 +69,7 @@ app.post("/pidSignIN", function(req, res){
       // console.log("what is happening?")
 
       async.series([
-        function(callback){ 
+        function(callback){
           // console.log("help");
           //Use list of classes to get list of teams
           var teamRef = db.ref("instructor/"+c);
@@ -99,7 +99,7 @@ app.post("/pidSignIN", function(req, res){
                   })
                 });
           })
-          
+
         },
         ],
       // optional callback
@@ -111,7 +111,7 @@ app.post("/pidSignIN", function(req, res){
 
       //Use list of classes to get list of teams
       var teamRef = db.ref("instructor/"+c);
-      
+
     });
   })
 })
@@ -172,59 +172,33 @@ app.get("/getListOfClasses", function(req, res){
 })
 
 //function where given an API an overall average from peer reviews is returned
-//Expects PID
+//Expects PID, Class Number and Team Number
 app.post("/cumulativeAverage", function(req, res){
   var pid = req.body.pid;
-  var ref = db.ref("instructor/");
-  console.log(getClass(pid));
-  res.send(true);
-  /*var retObj = [];
+  var classNum = req.body.classNum;
+  var teamNum = req.body.teamNum;
+
+  var total = 0;
+  var numReviews = 0;
+  var avg = 0;
+
+  var ref = db.ref("instructor/"+classNum+"/"+teamNum+"/"+pid+"/peer_reviews");
   ref.once("value").then(function(snapshot){
     var obj = snapshot.val();
-    Object.keys(obj).forEach(function(k) {
-      retObj.push(k);
-    });
-    res.json(retObj);
-  })*/
+    console.log(obj);
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        total += obj[key]["average"];
+        numReviews++;
+        console.log(key + " -> " + obj[key]["average"]);
+      }
+    }
+    avg = total / numReviews;
+    res.json(avg);
+  })
 })
 
-function getClass(pid)
-{
-  var classRef = db.ref("instructor/");
-  //Get a list of classes
-  classRef.once("value").then(function(snapshot){
-    console.log("in")
-    var obj = snapshot.val();
-    Object.keys(obj).forEach(function(c) {
 
-      //Use list of classes to get list of teams
-      var teamRef = db.ref("instructor/"+c);
-      teamRef.once("value").then(function(snapshot){
-        var obj = snapshot.val();
-        Object.keys(obj).forEach(function(t) {
-
-          //Use list of teams to get list of students
-          var pidRef = db.ref("instructor/"+c+"/"+t);
-          pidRef.once("value").then(function(snapshot){
-            var obj = snapshot.val();
-
-            //Loop over list of students and check pids
-            Object.keys(obj).forEach(function(p){
-              if(p == pid)
-              {
-                console.log("we here");
-                console.log([c,t]);
-                return [c, t];
-              }
-            });
-          })
-        });
-      })
-    });
-    console.log("classRef");
-  })
-  console.log("getClass");
-}
 
 // function to return an array of teams in classes
 // expects classNumber as query parameter
