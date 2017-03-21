@@ -161,6 +161,10 @@ textarea {
   width: 180px;
 
 }
+.dropdown-menu li:hover {
+    cursor: pointer;
+    background-color: grey;
+}
 
 .divCenter {
   width: 400px;
