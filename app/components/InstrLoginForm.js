@@ -7,8 +7,8 @@ class InstrLoginForm extends Component {
     return (
       <form className="form-signin" onSubmit={handleSubmit}>
         <div>
-          <Field component="input" type="text" name="email" />
-          <Field component="input" type="password" name="password" />
+          <Field component="input" type="text" placeholder="Username" name="email" />
+          <Field component="input" type="password" placeholder="Password" name="password" />
         </div>
         <div>
           <button className="myButton btn btn-primary btn-block" type="submit">Login</button>

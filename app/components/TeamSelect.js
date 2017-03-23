@@ -55,29 +55,29 @@ class TeamSelect extends Component {
         </div>
 
         <div className="dropdown dropdown-center" >
-        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Team
-        <span className="caret"></span></button>
-        <ul className="dropdown-menu dropdown-menu-center">
-          {teamItems}
-        </ul>
+	        <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Choose Team
+	        <span className="caret"></span></button>
+	        <ul className="dropdown-menu dropdown-menu-center">
+	          {teamItems}
+	        </ul>
+          <div className = "paddingHere"></div>
         </div>
 
 				<div>
-<<<<<<< HEAD
-					<input type="text" id="peer" />
-=======
 					<input type="text" id="peer" placeholder="Enter Spreadsheet Id"/>
->>>>>>> 679fe9d9fb564c3642e4a49e0079c7a7d9ed571d
-					<button onClick={() => {
+
+					<button className = "btn btn-primary" onClick={() => {
 						this.updatePeerReviews()
 					}}>Update Peer Reviews</button>
-				</div>
-				<div>
-					<input type="text" id="team" placeholder="Enter Spreadsheet ID"/>
-					<button onClick={() => {
+
+          <div className = "paddingHere"></div>
+
+					<input type="text" id="team" placeholder="Enter Spreadsheet Id"/>
+					<button className = "btn btn-info" onClick={() => {
 						this.updateTeamReviews()
 					}}>Update Team Reviews</button>
 				</div>
+				
       </div>
 
     );

@@ -27231,10 +27231,10 @@
 	              _react2.default.createElement('img', { className: 'profile-img', src: '/img/student-icon.png', alt: '' }),
 	              _react2.default.createElement(
 	                'div',
-	                { className: 'span12' },
+	                { className: 'span12 leftAlign rightAlign' },
 	                _react2.default.createElement(
 	                  'button',
-	                  { className: 'myButton btn btn-primary dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
+	                  { className: ' btn btn-primary dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
 	                  'Select Class',
 	                  _react2.default.createElement('span', { className: 'caret' })
 	                ),
@@ -27242,52 +27242,22 @@
 	                  'ul',
 	                  { className: 'dropdown-menu dropdown-menu-center' },
 	                  classItems
-	                )
+	                ),
+	                _react2.default.createElement('hr', { className: 'style1' })
 	              ),
 	              _react2.default.createElement(
 	                'div',
-	                null,
-	                _react2.default.createElement('hr', { className: 'style1' }),
-	                _react2.default.createElement('input', { type: 'text', id: 'classId' }),
+	                { className: 'leftAlign' },
+	                _react2.default.createElement('input', { type: 'text', id: 'classId', classNameme: '', placeholder: 'Enter Spreadsheet ID' }),
 	                _react2.default.createElement(
 	                  'button',
-	                  { className: 'myButton btn btn-primary', onClick: function onClick() {
+	                  { className: ' btn btn-primary', onClick: function onClick() {
 	                      _this2.importClass();
 	                    } },
 	                  'Import New Class'
 	                )
 	              )
 	            )
-<<<<<<< HEAD
-=======
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'dropdown dropdown-center' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'btn btn-primary dropdown-toggle', type: 'button', 'data-toggle': 'dropdown' },
-	              'Choose Class',
-	              _react2.default.createElement('span', { className: 'caret' })
-	            ),
-	            _react2.default.createElement(
-	              'ul',
-	              { className: 'dropdown-menu dropdown-menu-center' },
-	              classItems
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            _react2.default.createElement('input', { type: 'text', id: 'classId', placeholder: 'Enter Spreadsheet ID' }),
-	            _react2.default.createElement(
-	              'button',
-	              { onClick: function onClick() {
-	                  _this2.importClass();
-	                } },
-	              'Import New Class'
-	            )
->>>>>>> 679fe9d9fb564c3642e4a49e0079c7a7d9ed571d
 	          )
 	        )
 	      );
@@ -29347,8 +29317,8 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_reduxForm.Field, { component: 'input', type: 'text', name: 'email' }),
-	          _react2.default.createElement(_reduxForm.Field, { component: 'input', type: 'password', name: 'password' })
+	          _react2.default.createElement(_reduxForm.Field, { component: 'input', type: 'text', placeholder: 'Username', name: 'email' }),
+	          _react2.default.createElement(_reduxForm.Field, { component: 'input', type: 'password', placeholder: 'Password', name: 'password' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -39736,7 +39706,8 @@
 	            'ul',
 	            { className: 'dropdown-menu dropdown-menu-center' },
 	            teamItems
-	          )
+	          ),
+	          _react2.default.createElement('div', { className: 'paddingHere' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -39744,19 +39715,16 @@
 	          _react2.default.createElement('input', { type: 'text', id: 'peer', placeholder: 'Enter Spreadsheet Id' }),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: function onClick() {
+	            { className: 'btn btn-primary', onClick: function onClick() {
 	                _this2.updatePeerReviews();
 	              } },
 	            'Update Peer Reviews'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement('input', { type: 'text', id: 'team', placeholder: 'Enter Spreadsheet ID' }),
+	          ),
+	          _react2.default.createElement('div', { className: 'paddingHere' }),
+	          _react2.default.createElement('input', { type: 'text', id: 'team', placeholder: 'Enter Spreadsheet Id' }),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: function onClick() {
+	            { className: 'btn btn-info', onClick: function onClick() {
 	                _this2.updateTeamReviews();
 	              } },
 	            'Update Team Reviews'

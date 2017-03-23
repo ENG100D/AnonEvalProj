@@ -48,9 +48,9 @@ class ClassSelect extends Component {
         <li><a >LMAO</a></li>
 
         </ul>
+      </div>
 		  </div>
      </div>
-    </div>
 
     );
   };

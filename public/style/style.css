@@ -20,6 +20,18 @@ textarea {
 
 } 
 
+.leftAlign {
+  padding-left: 10%;
+}
+
+.paddingHere {
+  padding-bottom: 10%
+}
+
+.rightAlign {
+  padding-right: 10%
+}
+
 .myButton {
 	position: relative;
 	display: inline-block;
