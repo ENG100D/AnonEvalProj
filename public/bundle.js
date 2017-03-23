@@ -29039,6 +29039,14 @@
 
 	var _reactRedux = __webpack_require__(215);
 
+	var _axios = __webpack_require__(254);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _qs = __webpack_require__(271);
+
+	var _qs2 = _interopRequireDefault(_qs);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29049,6 +29057,7 @@
 
 	var InstrDash = (_dec = (0, _reactRedux.connect)(function (store) {
 	  return {
+	    currClass: store.globalReducer.currClass,
 	    currTeam: store.globalReducer.currTeam,
 	    students: store.globalReducer.students
 	  };
@@ -29062,9 +29071,34 @@
 	  }
 
 	  _createClass(InstrDash, [{
+	    key: 'getAvgGrade',
+	    value: function getAvgGrade(classNum, teamNum, student) {
+	      var pid = student.pid;
+	      var res;
+	      var param = {
+	        classNum: classNum,
+	        teamNum: teamNum,
+	        pid: pid
+	      };
+
+	      var request = _axios2.default.post('/cumulativeAverage/', _qs2.default.stringify(param));
+
+	      request.then(function (response) {
+	        console.log(response.data);
+	        res = response.data;
+	      });
+
+	      return 1;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var students = this.props.students;
+	      var _this2 = this;
+
+	      var _props = this.props,
+	          students = _props.students,
+	          currTeam = _props.currTeam,
+	          currClass = _props.currClass;
 
 	      var studentItems = students.map(function (student) {
 	        return _react2.default.createElement(
@@ -29078,7 +29112,7 @@
 	          _react2.default.createElement(
 	            'td',
 	            null,
-	            '0'
+	            _this2.getAvgGrade(currClass, currTeam, student)
 	          ),
 	          _react2.default.createElement(
 	            'td',

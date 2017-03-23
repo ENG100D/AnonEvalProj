@@ -187,6 +187,33 @@ app.post("/getListOfTeams", function(req, res){
   })
 })
 
+//function where given an API an overall average from peer reviews is returned
+//Expects PID, Class Number and Team Number
+app.post("/cumulativeAverage", function(req, res){
+  var pid = req.body.pid;
+  var classNum = req.body.classNum;
+  var teamNum = req.body.teamNum;
+
+  var total = 0;
+  var numReviews = 0;
+  var avg = 0;
+
+  var ref = db.ref("instructor/"+classNum+"/"+teamNum+"/"+pid+"/peer_reviews");
+  ref.once("value").then(function(snapshot){
+    var obj = snapshot.val();
+    console.log(obj);
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        total += obj[key]["average"];
+        numReviews++;
+        console.log(key + " -> " + obj[key]["average"]);
+      }
+    }
+    avg = total / numReviews;
+    res.json(avg);
+  })
+})
+
 
 /*app.post("/firebasePostTest", function(req, res){
   var userId = "a99131327";
