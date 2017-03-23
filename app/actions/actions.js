@@ -10,7 +10,6 @@ export const GETTEAMDATA = 'GETTEAMDATA';
 export const SETCURRCLASS = 'SETCURRCLASS';
 export const SETCURRTEAM = 'SETCURRTEAM';
 
-
 /* Root URL for API calls */
 export function instrLogin(props) {
   const request = axios.post('/signIn/', qs.stringify(props));

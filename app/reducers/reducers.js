@@ -33,7 +33,7 @@ export var globalReducer = (state=INITIAL_STATE, action) => {
 		};
 	case GETTEAMDATA:
 		var arr = Object.values(action.payload.data);
-
+		
 		return {
 			...state,
 			students: arr
