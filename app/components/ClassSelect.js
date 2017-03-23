@@ -80,7 +80,6 @@ class ClassSelect extends Component {
 
         </div>
 
-      </div>
     );
   };
 };

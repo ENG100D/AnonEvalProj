@@ -63,11 +63,7 @@ class TeamSelect extends Component {
         </div>
 
 				<div>
-<<<<<<< HEAD
-					<input type="text" id="peer" />
-=======
 					<input type="text" id="peer" placeholder="Enter Spreadsheet Id"/>
->>>>>>> 679fe9d9fb564c3642e4a49e0079c7a7d9ed571d
 					<button onClick={() => {
 						this.updatePeerReviews()
 					}}>Update Peer Reviews</button>
